@@ -8,7 +8,8 @@ public enum Verbosity {
     DEFAULT(MinionLogging.DONT_SHOW, true, Level.INFO),
     NO_SPINNER(MinionLogging.DONT_SHOW, false, Level.INFO),
     VERBOSE_NO_SPINNER(MinionLogging.SHOW, false, Level.FINEST),
-    VERBOSE(MinionLogging.SHOW, true, Level.FINEST);
+    VERBOSE(MinionLogging.SHOW, true, Level.FINEST),
+    RANDOM_VERBOSE(MinionLogging.SHOW, false, Level.INFO);
 
     private final MinionLogging minion;
     private final boolean showSpinner;

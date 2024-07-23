@@ -246,6 +246,9 @@ public class MojoToReportOptionsConverter {
 
     data.setInputEncoding(this.mojo.getSourceEncoding());
     data.setOutputEncoding(this.mojo.getOutputEncoding());
+    data.setRandomMutant(this.mojo.isRandomMutant());
+    data.setRandomTest(this.mojo.isRandomTest());
+    data.setRandomSeed(this.mojo.getRandomSeed());
 
     if (this.mojo.getProjectBase() != null) {
       data.setProjectBase(FileSystems.getDefault().getPath(this.mojo.getProjectBase()));

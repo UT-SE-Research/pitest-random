@@ -32,6 +32,7 @@ import org.pitest.testapi.execute.Pitest;
 import org.pitest.testapi.execute.containers.ConcreteResultCollector;
 import org.pitest.testapi.execute.containers.UnContainer;
 import org.pitest.util.Log;
+import org.pitest.util.Verbosity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -144,6 +145,10 @@ public class MutationTestWorker {
     if (DEBUG) {
       LOG.fine("" + relevantTests.size() + " relevant test for "
           + mutatedClass.getDetails().getMethod());
+    }
+
+    if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
+      LOG.info("RANDOM LOG: start running " + + relevantTests.size() + " relevant test for " + mutationId.toString());
     }
 
     final Container c = createNewContainer();

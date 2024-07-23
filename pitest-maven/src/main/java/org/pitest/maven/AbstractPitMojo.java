@@ -32,6 +32,7 @@ import java.util.function.Predicate;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+
 public class AbstractPitMojo extends AbstractMojo {
 
   private final Predicate<MavenProject> notEmptyProject;
@@ -412,6 +413,15 @@ public class AbstractPitMojo extends AbstractMojo {
 
   private final RepositorySystem repositorySystem;
 
+  @Parameter(property = "randomMutant", defaultValue = "false")
+  private boolean randomMutant;
+
+  @Parameter(property = "randomTest", defaultValue = "false")
+  private boolean randomTest;
+
+  @Parameter(property = "randomSeed", defaultValue = "-1")
+  private long randomSeed;
+
   @Inject
   public AbstractPitMojo(RepositorySystem repositorySystem) {
     this(new RunPitStrategy(), new DependencyFilter(PluginServices.makeForLoader(
@@ -786,6 +796,18 @@ public class AbstractPitMojo extends AbstractMojo {
 
   public RepositorySystem repositorySystem() {
     return repositorySystem;
+  }
+
+  public boolean isRandomMutant() {
+    return randomMutant;
+  }
+
+  public boolean isRandomTest() {
+    return randomTest;
+  }
+
+  public long getRandomSeed() {
+    return randomSeed;
   }
 
   static class RunDecision {

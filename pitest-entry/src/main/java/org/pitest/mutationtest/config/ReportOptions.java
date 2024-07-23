@@ -53,6 +53,7 @@ import java.util.Properties;
 import java.util.StringJoiner;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.Random;
 
 import static org.pitest.functional.Streams.asStream;
 import static org.pitest.functional.prelude.Prelude.not;
@@ -152,6 +153,12 @@ public class ReportOptions {
   private Charset outputEncoding;
 
   private boolean arcmutateMissing = true;
+
+  private boolean randomMutant = false;
+
+  private boolean randomTest = false;
+
+  private final Random pitestRandom = new Random();
 
   // currently used only via maven
   private Map<String,String> environmentVariables = new HashMap<>();
@@ -726,6 +733,32 @@ public class ReportOptions {
             .add("reportCoverage=" + reportCoverage)
             .add("arcmutateMissing=" + arcmutateMissing)
             .toString();
+  }
+
+  public void setRandomMutant(boolean randomMutant) {
+    this.randomMutant = randomMutant;
+  }
+
+  public void setRandomTest(boolean randomTest) {
+    this.randomTest = randomTest;
+  }
+
+  public void setRandomSeed(long randomSeed) {
+    if (randomSeed != -1L) {
+      this.pitestRandom.setSeed(randomSeed);
+    }
+  }
+
+  public boolean isRandomTest() {
+    return randomTest;
+  }
+
+  public boolean isRandomMutant() {
+    return randomMutant;
+  }
+
+  public Random getPitestRandom() {
+    return pitestRandom;
   }
 
 }

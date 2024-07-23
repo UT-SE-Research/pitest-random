@@ -43,6 +43,10 @@ public class MutationTestUnit implements MutationAnalysisUnit {
     this.workerFactory = workerFactory;
   }
 
+  public Collection<MutationDetails> getAvailableMutations() {
+    return availableMutations;
+  }
+
   @Override
   public MutationMetaData call() throws Exception {
     final MutationStatusMap mutations = new MutationStatusMap();

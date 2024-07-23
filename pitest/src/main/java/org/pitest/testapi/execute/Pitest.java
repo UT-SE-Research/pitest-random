@@ -26,6 +26,9 @@ import org.pitest.testapi.TestResult;
 import org.pitest.testapi.TestUnit;
 import org.pitest.util.Log;
 import org.pitest.util.PitError;
+import org.pitest.util.Verbosity;
+
+import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
 public class Pitest {
 
@@ -54,7 +57,11 @@ public class Pitest {
   private void executeTests(final Container container,
       final List<? extends TestUnit> testUnits) {
     for (final TestUnit unit : testUnits) {
+      long time1 = System.nanoTime();
       final List<TestResult> results = container.execute(unit);
+      if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
+        LOG.info(() -> "RANDOM LOG: Test " + unit.getDescription() + " Running time: " + NANOSECONDS.toMillis(System.nanoTime() - time1) + " ms");
+      }
       processResults(results);
     }
   }

@@ -25,6 +25,7 @@ import org.pitest.coverage.CoverageGenerator;
 import org.pitest.coverage.CoverageSummary;
 import org.pitest.coverage.NoCoverage;
 import org.pitest.coverage.ReportCoverage;
+import org.pitest.coverage.TestInfo;
 import org.pitest.help.Help;
 import org.pitest.help.PitHelpError;
 import org.pitest.mutationtest.History;
@@ -38,11 +39,13 @@ import org.pitest.mutationtest.build.MutationGrouper;
 import org.pitest.mutationtest.build.MutationInterceptor;
 import org.pitest.mutationtest.build.MutationSource;
 import org.pitest.mutationtest.build.MutationTestBuilder;
+import org.pitest.mutationtest.build.MutationTestUnit;
 import org.pitest.mutationtest.build.PercentAndConstantTimeoutStrategy;
 import org.pitest.mutationtest.build.TestPrioritiser;
 import org.pitest.mutationtest.build.WorkerFactory;
 import org.pitest.mutationtest.config.ReportOptions;
 import org.pitest.mutationtest.config.SettingsFactory;
+import org.pitest.mutationtest.engine.MutationDetails;
 import org.pitest.mutationtest.engine.MutationEngine;
 import org.pitest.mutationtest.execute.MutationAnalysisExecutor;
 import org.pitest.mutationtest.incremental.HistoryListener;
@@ -54,6 +57,7 @@ import org.pitest.mutationtest.verify.BuildMessage;
 import org.pitest.util.Log;
 import org.pitest.util.StringUtil;
 import org.pitest.util.Timings;
+import org.pitest.util.Verbosity;
 
 import java.io.File;
 import java.io.IOException;
@@ -161,6 +165,41 @@ public class MutationCoverage {
     final List<MutationAnalysisUnit> tus = buildMutationTests(coverageData, history,
             engine, args, allInterceptors());
     this.timings.registerEnd(Timings.Stage.BUILD_MUTATION_TESTS);
+
+    if (data.getVerbosity() == Verbosity.RANDOM_VERBOSE) {
+      if (data.isRandomMutant()) {
+        LOG.info("Random Mutants Turned On");
+
+        for (MutationAnalysisUnit mutationTestUnit : tus) {
+          MutationTestUnit unit = (MutationTestUnit) mutationTestUnit;
+          Collection<MutationDetails> mutations = unit.getAvailableMutations();
+          Collections.shuffle(new ArrayList<>(mutations), data.getPitestRandom());
+        }
+      }
+
+      if (data.isRandomTest()) {
+        LOG.info("Random Tests Turned On");
+        for (MutationAnalysisUnit mutationTestUnit : tus) {
+          MutationTestUnit unit = (MutationTestUnit) mutationTestUnit;
+          Collection<MutationDetails> mutations = unit.getAvailableMutations();
+          for (MutationDetails mutation : mutations) {
+            List<TestInfo> testsInOrder = mutation.getTestsInOrder();
+            Collections.shuffle(testsInOrder, data.getPitestRandom());
+          }
+        }
+      }
+    }
+//    System.out.println("Test Order:");
+
+//    for (MutationAnalysisUnit mutationTestUnit : tus) {
+//      MutationTestUnit unit = (MutationTestUnit)mutationTestUnit;
+//      Collection<MutationDetails> mutations = unit.getAvailableMutations();
+//      for (MutationDetails mutation : mutations) {
+//        List<TestInfo> testsInOrder = mutation.getTestsInOrder();
+//
+//      }
+//    }
+
 
     LOG.info("Created " + tus.size() + " mutation test units" );
 
@@ -356,7 +395,6 @@ public class MutationCoverage {
         this.data.getNumberOfThreads(), this.data.getMutationUnitSize());
     final MutationTestBuilder builder = new MutationTestBuilder(wf, history,
         source, grouper);
-
     return builder.createMutationTestUnits(this.code.getCodeUnderTestNames());
   }
   private void checkMutationsFound(final List<MutationAnalysisUnit> tus) {
