@@ -19,6 +19,7 @@ import static org.pitest.functional.prelude.Prelude.putToMap;
 import java.util.Collection;
 import java.util.Collections;
 //import java.util.HashMap;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,10 +31,20 @@ import java.util.stream.Collectors;
 
 import org.pitest.functional.FCollection;
 import org.pitest.mutationtest.engine.MutationDetails;
+import org.pitest.util.Log;
+import org.pitest.util.Verbosity;
 
 public class MutationStatusMap {
 
-  private final Map<MutationDetails, MutationStatusTestPair> mutationMap = new LinkedHashMap<>();
+  private final Map<MutationDetails, MutationStatusTestPair> mutationMap;
+
+  public MutationStatusMap(){
+    if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
+      mutationMap = new LinkedHashMap<>();
+    }else {
+      mutationMap = new HashMap<>();
+    }
+  }
 
   public void setStatusForMutation(final MutationDetails mutation,
       final DetectionStatus status) {
