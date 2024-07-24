@@ -38,10 +38,10 @@ public class MutationStatusMap {
 
   private final Map<MutationDetails, MutationStatusTestPair> mutationMap;
 
-  public MutationStatusMap(){
+  public MutationStatusMap() {
     if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
       mutationMap = new LinkedHashMap<>();
-    }else {
+    } else {
       mutationMap = new HashMap<>();
     }
   }

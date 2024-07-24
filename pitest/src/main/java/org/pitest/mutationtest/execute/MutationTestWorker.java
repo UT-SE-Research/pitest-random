@@ -79,7 +79,6 @@ public class MutationTestWorker {
       final TimeOutDecoratedTestSource testSource) throws IOException {
 
     for (final MutationDetails mutation : range) {
-      LOG.info("Running mutation " + mutation);
       if (DEBUG) {
         LOG.fine("Running mutation " + mutation);
       }
