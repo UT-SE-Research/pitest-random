@@ -208,8 +208,8 @@
 
 	<build>
 
-		<!-- specification of versions of all plugins used in any module also common 
-			configuration is specified there (but module-specific stuff is specified 
+		<!-- specification of versions of all plugins used in any module also common
+			configuration is specified there (but module-specific stuff is specified
 			in other pom.xml files) -->
 		<pluginManagement>
 			<plugins>

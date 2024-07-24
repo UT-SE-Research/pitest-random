@@ -23,7 +23,9 @@ import org.pitest.mutationtest.engine.MutationIdentifier;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -73,6 +75,44 @@ public class MutationTestBuilder {
       for (final Collection<MutationDetails> ms : this.grouper.groupMutations(
           codeClasses, needProcessing)) {
         tus.add(makeUnanalysedUnit(ms));
+      }
+    }
+
+    tus.sort(new AnalysisPriorityComparator());
+    return tus;
+  }
+
+  public List<MutationAnalysisUnit> createMutationTestUnits(
+          final Collection<ClassName> codeClasses, Random random) {
+    final List<MutationAnalysisUnit> tus = new ArrayList<>();
+
+    final List<MutationDetails> mutations = codeClasses.stream()
+            .flatMap(c -> mutationSource.createMutations(c).stream())
+            .collect(Collectors.toList());
+
+    mutations.sort(comparing(MutationDetails::getId));
+
+
+    List<MutationResult> analysisUnits = this.analyser.analyse(mutations);
+
+    Collection<MutationDetails> needProcessing = filterAlreadyAnalysedMutations(mutations, analysisUnits);
+
+    List<MutationResult> analysedMutations = analysisUnits.stream()
+            .filter(r -> r.getStatus() != DetectionStatus.NOT_STARTED)
+            .collect(Collectors.toList());
+
+    if (!analysedMutations.isEmpty()) {
+      tus.add(makePreAnalysedUnit(analysedMutations));
+    }
+
+
+
+    if (!needProcessing.isEmpty()) {
+      for (final Collection<MutationDetails> ms : this.grouper.groupMutations(
+              codeClasses, needProcessing)) {
+        ArrayList<MutationDetails> mutationDetails = new ArrayList<>(ms);
+        Collections.shuffle(mutationDetails,random);
+        tus.add(makeUnanalysedUnit(mutationDetails));
       }
     }
 

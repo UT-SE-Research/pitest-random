@@ -167,15 +167,6 @@ public class MutationCoverage {
     this.timings.registerEnd(Timings.Stage.BUILD_MUTATION_TESTS);
 
     if (data.getVerbosity() == Verbosity.RANDOM_VERBOSE) {
-      if (data.isRandomMutant()) {
-        LOG.info("Random Mutants Turned On");
-
-        for (MutationAnalysisUnit mutationTestUnit : tus) {
-          MutationTestUnit unit = (MutationTestUnit) mutationTestUnit;
-          Collection<MutationDetails> mutations = unit.getAvailableMutations();
-          Collections.shuffle(new ArrayList<>(mutations), data.getPitestRandom());
-        }
-      }
 
       if (data.isRandomTest()) {
         LOG.info("Random Tests Turned On");
@@ -395,6 +386,12 @@ public class MutationCoverage {
         this.data.getNumberOfThreads(), this.data.getMutationUnitSize());
     final MutationTestBuilder builder = new MutationTestBuilder(wf, history,
         source, grouper);
+    if (data.getVerbosity() == Verbosity.RANDOM_VERBOSE) {
+      if (data.isRandomMutant()) {
+        LOG.info("Random Mutants Turned On");
+        return builder.createMutationTestUnits(this.code.getCodeUnderTestNames(),data.getPitestRandom());
+      }
+    }
     return builder.createMutationTestUnits(this.code.getCodeUnderTestNames());
   }
   private void checkMutationsFound(final List<MutationAnalysisUnit> tus) {
@@ -429,4 +426,5 @@ public class MutationCoverage {
       return clSource.getBytes(clazz);
     };
   }
+
 }
