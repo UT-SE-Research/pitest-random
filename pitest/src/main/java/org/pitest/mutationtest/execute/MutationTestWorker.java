@@ -160,8 +160,14 @@ public class MutationTestWorker {
         LOG.fine("replaced class with mutant in "
             + NANOSECONDS.toMillis(System.nanoTime() - t0) + " ms");
       }
-
+      if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
+        LOG.info("RANDOM LOG: replaced class with mutant in " + NANOSECONDS.toMillis(System.nanoTime() - t0) + " ms");
+      }
+      final long t1 = System.nanoTime();
       mutationDetected = doTestsDetectMutation(c, relevantTests);
+      if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
+        LOG.info("RANDOM LOG: run all related tests in " + NANOSECONDS.toMillis(System.nanoTime() - t1) + " ms");
+      }
     } else {
       LOG.warning("Mutation " + mutationId + " was not viable ");
       mutationDetected = MutationStatusTestPair.notAnalysed(0,
