@@ -132,7 +132,7 @@ public class MutationTestWorker {
 
         r.describe(mutationId);
         final MutationStatusTestPair mutationDetected;
-        if (randomGroup) {
+        if (!randomGroup) {
             mutationDetected = handleMutation(
                     mutationDetails, mutatedClass, relevantTests);
         } else {
@@ -176,7 +176,7 @@ public class MutationTestWorker {
 
         final long t = System.nanoTime();
 
-        if (!mutationId.getClassName().asInternalName().equals(lastClassName.asInternalName())) {
+        if (lastClassName != null && !mutationId.getClassName().asInternalName().equals(lastClassName.asInternalName())) {
             LOG.info("RANDOM LOG: Mutated Class changed, replaced last mutant to original class " + lastClassName.asInternalName() + " in " + NANOSECONDS.toMillis(System.nanoTime() - t) + " ms");
             if (!this.hotswap.insertClass(lastClassName, this.loader, lastClassBytes)) {
                 LOG.warning("Mutation " + mutationId + " was not viable ");

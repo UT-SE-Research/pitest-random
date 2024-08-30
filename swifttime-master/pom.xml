@@ -45,8 +45,10 @@
                     <fullMutationMatrix>true</fullMutationMatrix>
                     <randomMutant>true</randomMutant>
                     <randomTest>true</randomTest>
+<!--                    <randomGroup>true</randomGroup>-->
                     <verbosity>RANDOM_VERBOSE</verbosity>
                     <randomSeed>99999</randomSeed>
+                    <skipFailingTests>true</skipFailingTests>
                     <outputFormats>
                         <outputFormat>XML</outputFormat>
                     </outputFormats>
