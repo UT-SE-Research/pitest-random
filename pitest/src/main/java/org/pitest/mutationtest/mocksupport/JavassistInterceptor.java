@@ -30,12 +30,16 @@ public final class JavassistInterceptor {
 
   private static Mutant mutant;
 
+  private static byte[] mutantBytes;
+
+  private static ClassName mutantName;
+
   public static InputStream openClassfile(final Object classPath, // NO_UCD
       final String name) {
 
     if (isMutatedClass(name)) {
       return  new ByteArrayInputStream(
-          mutant.getBytes());
+          mutantBytes);
     } else {
       return returnNormalBytes(classPath, name);
     }
@@ -53,12 +57,19 @@ public final class JavassistInterceptor {
   }
 
   private static boolean isMutatedClass(final String name) {
-    return (mutant != null)
-        && mutant.getDetails().getClassName()
-        .equals(ClassName.fromString(name));
+    return mutantName != null && mutantName.equals(ClassName.fromString(name));
   }
 
   public static void setMutant(final Mutant newMutant) {
     mutant = newMutant;
+    if (mutant != null) {
+      mutantBytes = mutant.getBytes();
+      mutantName = mutant.getDetails().getClassName();
+    }
+  }
+
+  public static void setBytesAndName(byte[] bytes, ClassName name) {
+    mutantBytes = bytes;
+    mutantName = name;
   }
 }
