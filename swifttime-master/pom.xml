@@ -43,12 +43,12 @@
                 <version>dev-random-SNAPSHOT</version>
                 <configuration>
                     <fullMutationMatrix>true</fullMutationMatrix>
-                    <randomMutant>true</randomMutant>
-                    <randomTest>true</randomTest>
+<!--                    <randomMutant>true</randomMutant>-->
+<!--                    <randomTest>true</randomTest>-->
                     <randomGroup>true</randomGroup>
-                    <verbosity>RANDOM_VERBOSE</verbosity>
-                    <randomSeed>99999</randomSeed>
-                    <skipFailingTests>true</skipFailingTests>
+<!--                    <verbosity>RANDOM_VERBOSE</verbosity>-->
+<!--                    <randomSeed>99999</randomSeed>-->
+<!--                    <skipFailingTests>true</skipFailingTests>-->
                     <outputFormats>
                         <outputFormat>XML</outputFormat>
                     </outputFormats>
