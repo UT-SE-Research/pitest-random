@@ -31,6 +31,8 @@ public class WorkerFactory {
   private final MutationConfig        config;
   private final EngineArguments       args;
 
+  private final boolean               randomGroup;
+
   public WorkerFactory(final File baseDir,
       final TestPluginArguments pitConfig,
       final MutationConfig mutationConfig,
@@ -38,7 +40,8 @@ public class WorkerFactory {
       final TimeoutLengthStrategy timeoutStrategy,
       final Verbosity verbosity,
       final boolean fullMutationMatrix,
-      final String classPath) {
+      final String classPath,
+      final boolean randomGroup) {
     this.pitConfig = pitConfig;
     this.timeoutStrategy = timeoutStrategy;
     this.verbosity = verbosity;
@@ -47,6 +50,8 @@ public class WorkerFactory {
     this.baseDir = baseDir;
     this.config = mutationConfig;
     this.args = args;
+    this.randomGroup = randomGroup;
+
   }
 
   public MutationTestProcess createWorker(
@@ -54,7 +59,7 @@ public class WorkerFactory {
       final Collection<ClassName> testClasses) {
     final MinionArguments fileArgs = new MinionArguments(remainingMutations,
         testClasses, this.config.getEngine().getName(), this.args, this.timeoutStrategy,
-        Log.verbosity(), this.fullMutationMatrix, this.pitConfig);
+        Log.verbosity(), this.fullMutationMatrix, this.pitConfig, this.randomGroup);
 
     final ProcessArgs args = ProcessArgs.withClassPath(this.classPath)
         .andLaunchOptions(this.config.getLaunchOptions())

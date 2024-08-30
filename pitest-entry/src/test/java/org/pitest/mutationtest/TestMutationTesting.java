@@ -273,7 +273,7 @@ public class TestMutationTesting {
         coverageOptions.getPitConfig(), mutationConfig, arguments,
         new PercentAndConstantTimeoutStrategy(data.getTimeoutFactor(),
             data.getTimeoutConstant()), data.getVerbosity(), false, data.getClassPath()
-            .getLocalClassPath());
+            .getLocalClassPath(), data.isRandomGroup());
 
 
 

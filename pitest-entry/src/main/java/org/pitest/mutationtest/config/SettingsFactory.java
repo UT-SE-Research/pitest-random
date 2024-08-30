@@ -20,6 +20,7 @@ import org.pitest.mutationtest.build.DefaultMutationGrouperFactory;
 import org.pitest.mutationtest.build.DefaultTestPrioritiserFactory;
 import org.pitest.mutationtest.build.MutationGrouperFactory;
 import org.pitest.mutationtest.build.MutationInterceptorFactory;
+import org.pitest.mutationtest.build.RandomMutationGrouperFactory;
 import org.pitest.mutationtest.build.TestPrioritiserFactory;
 import org.pitest.mutationtest.incremental.DefaultHistoryFactory;
 import org.pitest.mutationtest.verify.BuildVerifierFactory;
@@ -104,7 +105,11 @@ public class SettingsFactory {
     // a JVM or else the last mutation will poison the next. This restriction can only
     // be removed if the hotswap functionality is reworked.
     // Grouping behaviour is therefore hard coded for now.
-    return new DefaultMutationGrouperFactory();
+    if (this.options.isRandomGroup()) {
+      return new RandomMutationGrouperFactory();
+    } else {
+      return new DefaultMutationGrouperFactory();
+    }
   }
 
   public CodeSource createCodeSource(ProjectClassPaths classPath) {

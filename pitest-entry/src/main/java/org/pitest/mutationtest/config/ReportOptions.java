@@ -158,6 +158,7 @@ public class ReportOptions {
 
   private boolean randomTest = false;
 
+  private boolean randomGroup = false;
   private final Random pitestRandom = new Random();
 
   // currently used only via maven
@@ -743,6 +744,10 @@ public class ReportOptions {
     this.randomTest = randomTest;
   }
 
+  public void setRandomGroup(boolean randomGroup) {
+    this.randomGroup = randomGroup;
+  }
+
   public void setRandomSeed(long randomSeed) {
     if (randomSeed != -1L) {
       this.pitestRandom.setSeed(randomSeed);
@@ -755,6 +760,10 @@ public class ReportOptions {
 
   public boolean isRandomMutant() {
     return randomMutant;
+  }
+
+  public boolean isRandomGroup() {
+    return randomGroup;
   }
 
   public Random getPitestRandom() {

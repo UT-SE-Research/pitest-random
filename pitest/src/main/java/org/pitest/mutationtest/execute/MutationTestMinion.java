@@ -89,7 +89,7 @@ public class MutationTestMinion {
       final ResetEnvironment reset = this.plugins.createReset();
 
       final MutationTestWorker worker = new MutationTestWorker(hotswap,
-          engine.createMutator(byteSource), loader, reset, paramsFromParent.fullMutationMatrix);
+          engine.createMutator(byteSource), loader, reset, paramsFromParent.fullMutationMatrix, paramsFromParent.randomGroup);
 
       final List<TestUnit> tests = findTestsForTestClasses(loader,
           paramsFromParent.testClasses, createTestPlugin(paramsFromParent.pitConfig));

@@ -422,6 +422,9 @@ public class AbstractPitMojo extends AbstractMojo {
   @Parameter(property = "randomSeed", defaultValue = "-1")
   private long randomSeed;
 
+  @Parameter(property = "randomGroup", defaultValue = "false")
+  private boolean randomGroup;
+
   @Inject
   public AbstractPitMojo(RepositorySystem repositorySystem) {
     this(new RunPitStrategy(), new DependencyFilter(PluginServices.makeForLoader(
@@ -809,6 +812,11 @@ public class AbstractPitMojo extends AbstractMojo {
   public long getRandomSeed() {
     return randomSeed;
   }
+
+  public boolean isRandomGroup() {
+    return randomGroup;
+  }
+
 
   static class RunDecision {
     private List<String> reasons = new ArrayList<>(4);

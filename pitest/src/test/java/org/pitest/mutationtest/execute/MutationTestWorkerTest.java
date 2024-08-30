@@ -58,7 +58,7 @@ public class MutationTestWorkerTest {
   public void setUp() {
     MockitoAnnotations.openMocks(this);
     this.testee = new MutationTestWorker(this.hotswapper, this.mutater,
-        this.loader, this.reset,false);
+        this.loader, this.reset,false, false);
   }
 
   @Test

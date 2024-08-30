@@ -248,6 +248,7 @@ public class MojoToReportOptionsConverter {
     data.setOutputEncoding(this.mojo.getOutputEncoding());
     data.setRandomMutant(this.mojo.isRandomMutant());
     data.setRandomTest(this.mojo.isRandomTest());
+    data.setRandomGroup(this.mojo.isRandomGroup());
     data.setRandomSeed(this.mojo.getRandomSeed());
 
     if (this.mojo.getProjectBase() != null) {
