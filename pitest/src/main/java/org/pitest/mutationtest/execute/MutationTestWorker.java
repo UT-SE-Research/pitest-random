@@ -178,12 +178,12 @@ public class MutationTestWorker {
 
         if (lastClassName != null && !mutationId.getClassName().equals(lastClassName)) {
             if (!this.hotswap.insertClass(lastClassName, this.loader, lastClassBytes)) {
-                LOG.info("RANDOM LOG: Mutated Class changed, replaced last mutant to original class " + lastClassName.asInternalName() + " in " + NANOSECONDS.toMillis(System.nanoTime() - t) + " ms");
                 LOG.warning("Mutation " + mutationId + " was not viable ");
                 mutationDetected = MutationStatusTestPair.notAnalysed(0,
                         DetectionStatus.NON_VIABLE);
                 return mutationDetected;
             }
+            LOG.info("RANDOM LOG: Mutated Class changed, replaced last mutant to original class " + lastClassName.asInternalName() + " in " + NANOSECONDS.toMillis(System.nanoTime() - t) + " ms");
             JavassistInterceptor.setBytesAndName(lastClassBytes, lastClassName);
             reset.resetFor(mutatedClass);
         }
