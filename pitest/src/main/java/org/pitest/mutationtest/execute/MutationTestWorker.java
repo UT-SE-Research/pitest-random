@@ -177,8 +177,8 @@ public class MutationTestWorker {
         final long t = System.nanoTime();
 
         if (lastClassName != null && !mutationId.getClassName().equals(lastClassName)) {
-            LOG.info("RANDOM LOG: Mutated Class changed, replaced last mutant to original class " + lastClassName.asInternalName() + " in " + NANOSECONDS.toMillis(System.nanoTime() - t) + " ms");
             if (!this.hotswap.insertClass(lastClassName, this.loader, lastClassBytes)) {
+                LOG.info("RANDOM LOG: Mutated Class changed, replaced last mutant to original class " + lastClassName.asInternalName() + " in " + NANOSECONDS.toMillis(System.nanoTime() - t) + " ms");
                 LOG.warning("Mutation " + mutationId + " was not viable ");
                 mutationDetected = MutationStatusTestPair.notAnalysed(0,
                         DetectionStatus.NON_VIABLE);
