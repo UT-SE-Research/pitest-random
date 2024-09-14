@@ -33,11 +33,7 @@ import org.pitest.mutationtest.mocksupport.JavassistInterceptor;
 import org.pitest.testapi.Configuration;
 import org.pitest.testapi.TestUnit;
 import org.pitest.testapi.execute.FindTestUnits;
-import org.pitest.util.ExitCode;
-import org.pitest.util.Glob;
-import org.pitest.util.IsolationUtils;
-import org.pitest.util.Log;
-import org.pitest.util.SafeDataInputStream;
+import org.pitest.util.*;
 
 import javax.management.NotificationListener;
 import javax.management.openmbean.CompositeData;
@@ -49,6 +45,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+
+import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
 public class MutationTestMinion {
 
@@ -94,12 +92,16 @@ public class MutationTestMinion {
       final List<TestUnit> tests = findTestsForTestClasses(loader,
           paramsFromParent.testClasses, createTestPlugin(paramsFromParent.pitConfig));
 
+
+      long t0 = System.nanoTime();
       worker.run(paramsFromParent.mutations, this.reporter,
           new TimeOutDecoratedTestSource(paramsFromParent.timeoutStrategy,
               tests, this.reporter));
 
       this.reporter.done(ExitCode.OK);
-
+      if(Log.verbosity() == Verbosity.RANDOM_VERBOSE){
+        LOG.info("RANDOM LOG: Run all " + paramsFromParent.mutations.size() + " mutants in " + NANOSECONDS.toMillis(System.nanoTime() - t0) + " ms");
+      }
       // rudely kill the vm in case it is kept alive
       // by threads launched by client
       System.exit(0);
