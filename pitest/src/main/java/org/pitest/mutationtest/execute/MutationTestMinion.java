@@ -33,7 +33,12 @@ import org.pitest.mutationtest.mocksupport.JavassistInterceptor;
 import org.pitest.testapi.Configuration;
 import org.pitest.testapi.TestUnit;
 import org.pitest.testapi.execute.FindTestUnits;
-import org.pitest.util.*;
+import org.pitest.util.ExitCode;
+import org.pitest.util.Glob;
+import org.pitest.util.IsolationUtils;
+import org.pitest.util.Log;
+import org.pitest.util.SafeDataInputStream;
+import org.pitest.util.Verbosity;
 
 import javax.management.NotificationListener;
 import javax.management.openmbean.CompositeData;
@@ -70,6 +75,8 @@ public class MutationTestMinion {
   public void run() {
     try {
 
+      long t0 = System.nanoTime();
+
       final MinionArguments paramsFromParent = this.dis
           .read(MinionArguments.class);
 
@@ -93,13 +100,12 @@ public class MutationTestMinion {
           paramsFromParent.testClasses, createTestPlugin(paramsFromParent.pitConfig));
 
 
-      long t0 = System.nanoTime();
       worker.run(paramsFromParent.mutations, this.reporter,
           new TimeOutDecoratedTestSource(paramsFromParent.timeoutStrategy,
               tests, this.reporter));
 
       this.reporter.done(ExitCode.OK);
-      if(Log.verbosity() == Verbosity.RANDOM_VERBOSE){
+      if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
         LOG.info("RANDOM LOG: Run all " + paramsFromParent.mutations.size() + " mutants in " + NANOSECONDS.toMillis(System.nanoTime() - t0) + " ms");
       }
       // rudely kill the vm in case it is kept alive
