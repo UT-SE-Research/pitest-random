@@ -770,4 +770,14 @@ public class ReportOptions {
     return pitestRandom;
   }
 
+  private int numberOfGroups = 2;
+
+  public int getNumberOfGroups() {
+    return numberOfGroups;
+  }
+
+  public void setNumberOfGroups(int numberOfGroups) {
+    this.numberOfGroups = numberOfGroups;
+  }
+
 }
