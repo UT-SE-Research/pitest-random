@@ -57,7 +57,8 @@ public final class TestInfo implements Serializable {
 
   @Override
   public String toString() {
-    return this.name;
+    return "TestInfo [name=" + this.name + ", definingClass=" + this.definingClass
+        + ", time=" + this.time + ", blocks=" + this.blocks + ", testee=" + this.testee + "]";
   }
 
   public static Function<TestInfo, String> toName() {
