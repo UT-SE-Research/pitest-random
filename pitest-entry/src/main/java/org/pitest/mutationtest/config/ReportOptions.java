@@ -159,7 +159,12 @@ public class ReportOptions {
   private boolean randomTest = false;
 
   private boolean randomGroup = false;
+
   private final Random pitestRandom = new Random();
+
+  private boolean readFromFile = false;
+
+  private String filePath = "";
 
   // currently used only via maven
   private Map<String,String> environmentVariables = new HashMap<>();
@@ -753,6 +758,13 @@ public class ReportOptions {
       this.pitestRandom.setSeed(randomSeed);
     }
   }
+  public void setReadFromFile(boolean readFromFile) {
+    this.readFromFile = readFromFile;
+  }
+
+  public void setFilePath(String filePath) {
+    this.filePath = filePath;
+  }
 
   public boolean isRandomTest() {
     return randomTest;
@@ -768,6 +780,14 @@ public class ReportOptions {
 
   public Random getPitestRandom() {
     return pitestRandom;
+  }
+
+  public boolean isReadFromFile() {
+    return readFromFile;
+  }
+
+  public String getFilePath() {
+    return filePath;
   }
 
 }

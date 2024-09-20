@@ -29,8 +29,8 @@ public final class MultipleTestGroup extends AbstractTestUnit {
 
   public MultipleTestGroup(final List<TestUnit> children) {
     super(new Description("MultipleTestGroup"));
-    this.children = children;
-  }
+    this.children = children;  }
+
 
   @Override
   public void execute(final ResultCollector rc) {

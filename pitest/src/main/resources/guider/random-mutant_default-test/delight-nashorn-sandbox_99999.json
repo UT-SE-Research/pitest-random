@@ -1,0 +1,2895 @@
+[
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.NashornSandboxes",
+                "method": "create",
+                "methodDesc": "()Ldelight/nashornsandbox/NashornSandbox;"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxes.java",
+        "block": "[1]",
+        "lineNumber": 24,
+        "description": "replaced return value with null for delight/nashornsandbox/NashornSandboxes::create",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAccessFunction",
+                "name": "test_access_variable(delight.nashornsandbox.TestAccessFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAccess",
+                "name": "test_file(delight.nashornsandbox.TestAllowAccess)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptions(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptionsWithBinding(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptionsWithBinding2(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestBuiltInObjectsAccess",
+                "name": "test_block_access(delight.nashornsandbox.TestBuiltInObjectsAccess)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestClassForName",
+                "name": "test_access_denied(delight.nashornsandbox.TestClassForName)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestClassForName",
+                "name": "test_access_granted(delight.nashornsandbox.TestClassForName)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestCustomCache",
+                "name": "testCustomCacheUsage(delight.nashornsandbox.TestCustomCache)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEngine",
+                "name": "test(delight.nashornsandbox.TestEngine)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEngine",
+                "name": "test_with_delete(delight.nashornsandbox.TestEngine)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithExistingBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindingsScriptContext(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewSimpleBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExceptions",
+                "name": "test(delight.nashornsandbox.TestExceptions)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExceptions",
+                "name": "test_with_catch(delight.nashornsandbox.TestExceptions)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExceptions",
+                "name": "test_with_line_number(delight.nashornsandbox.TestExceptions)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExceptions",
+                "name": "test_with_thread(delight.nashornsandbox.TestExceptions)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testExit(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuit(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuitWithBindings(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuitWithScriptContext(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestGlobalVariable",
+                "name": "test_java_variable(delight.nashornsandbox.TestGlobalVariable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIfElse",
+                "name": "testIfElse(delight.nashornsandbox.TestIfElse)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestInaccessible",
+                "name": "test_file(delight.nashornsandbox.TestInaccessible)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestInaccessible",
+                "name": "test_system_exit(delight.nashornsandbox.TestInaccessible)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestInvocable",
+                "name": "testInvokeFunction(delight.nashornsandbox.TestInvocable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestInvocable",
+                "name": "testInvokeMethod(delight.nashornsandbox.TestInvocable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue102",
+                "name": "test(delight.nashornsandbox.TestIssue102)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue134",
+                "name": "test(delight.nashornsandbox.TestIssue134)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue151RegEx",
+                "name": "test_example_1(delight.nashornsandbox.TestIssue151RegEx)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue151RegEx",
+                "name": "test_example_2(delight.nashornsandbox.TestIssue151RegEx)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue36",
+                "name": "test(delight.nashornsandbox.TestIssue36)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue47",
+                "name": "test_invalid(delight.nashornsandbox.TestIssue47)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue47",
+                "name": "test_valid(delight.nashornsandbox.TestIssue47)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue54",
+                "name": "test_valid(delight.nashornsandbox.TestIssue54)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue92",
+                "name": "test_function_and_switch(delight.nashornsandbox.TestIssue92)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue92",
+                "name": "test_while_and_switch(delight.nashornsandbox.TestIssue92)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestKeepVariables",
+                "name": "test(delight.nashornsandbox.TestKeepVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "test(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "test_do_while(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "test_evil_script(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "test_nice_script(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "test_only_while(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "test_only_while_allowed_bad_script(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "test_only_while_good_script(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "test_while_plus_iteration(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "test_while_plus_iteration_bad_scrip_allowed(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "test_while_plus_iteration_bad_script(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestManyEvalsAndInjections",
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test(delight.nashornsandbox.TestMemoryLimit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_issue_86_continued_use(delight.nashornsandbox.TestMemoryLimit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_no_abuse(delight.nashornsandbox.TestMemoryLimit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_noexpectedbraces(delight.nashornsandbox.TestMemoryLimit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_catch(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_catch_compiled(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_engine_working_after_crash(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestSetWriter",
+                "name": "test(delight.nashornsandbox.TestSetWriter)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestSimpleEval",
+                "name": "test(delight.nashornsandbox.TestSimpleEval)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestSwitch",
+                "name": "test(delight.nashornsandbox.TestSwitch)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestSwitch",
+                "name": "test_graal(delight.nashornsandbox.TestSwitch)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.NashornSandboxes",
+                "method": "create",
+                "methodDesc": "([Ljava/lang/String;)Ldelight/nashornsandbox/NashornSandbox;"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxes.java",
+        "block": "[1]",
+        "lineNumber": 38,
+        "description": "replaced return value with null for delight/nashornsandbox/NashornSandboxes::create",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestIssue40_ScriptEngineParameters",
+                "name": "test(delight.nashornsandbox.TestIssue40_ScriptEngineParameters)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.exceptions.ScriptAbuseException",
+                "method": "getMessage",
+                "methodDesc": "()Ljava/lang/String;"
+            },
+            "indexes": "[17]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator"
+        },
+        "filename": "ScriptAbuseException.java",
+        "block": "[4]",
+        "lineNumber": 41,
+        "description": "replaced return value with \"\" for delight/nashornsandbox/exceptions/ScriptAbuseException::getMessage",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.exceptions.ScriptAbuseException",
+                "method": "getMessage",
+                "methodDesc": "()Ljava/lang/String;"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "ScriptAbuseException.java",
+        "block": "[0]",
+        "lineNumber": 37,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.EvaluateCompiledOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[28]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "EvaluateCompiledOperation.java",
+        "block": "[6]",
+        "lineNumber": 44,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_catch_compiled(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_engine_working_after_crash(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.EvaluateCompiledOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[36]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "EvaluateCompiledOperation.java",
+        "block": "[8]",
+        "lineNumber": 45,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/EvaluateCompiledOperation::executeScriptEngineOperation",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.EvaluateCompiledOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[42]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "EvaluateCompiledOperation.java",
+        "block": "[9]",
+        "lineNumber": 46,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_catch_compiled(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_engine_working_after_crash(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.EvaluateCompiledOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[50]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "EvaluateCompiledOperation.java",
+        "block": "[11]",
+        "lineNumber": 47,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/EvaluateCompiledOperation::executeScriptEngineOperation",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptContext)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.EvaluateCompiledOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[57]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "EvaluateCompiledOperation.java",
+        "block": "[13]",
+        "lineNumber": 49,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/EvaluateCompiledOperation::executeScriptEngineOperation",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_catch_compiled(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_engine_working_after_crash(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.EvaluateOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[36]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "EvaluateOperation.java",
+        "block": "[7]",
+        "lineNumber": 43,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/EvaluateOperation::executeScriptEngineOperation",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptionsWithBinding(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptionsWithBinding2(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewSimpleBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuitWithBindings(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_issue_86_continued_use(delight.nashornsandbox.TestMemoryLimit)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.EvaluateOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[51]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "EvaluateOperation.java",
+        "block": "[10]",
+        "lineNumber": 45,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/EvaluateOperation::executeScriptEngineOperation",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithExistingBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindingsScriptContext(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue151RegEx",
+                "name": "test_example_2(delight.nashornsandbox.TestIssue151RegEx)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.InvokeOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "InvokeOperation.java",
+        "block": "[0]",
+        "lineNumber": 20,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer",
+                "method": "<init>",
+                "methodDesc": "(Ljavax/script/ScriptEngine;Ldelight/nashornsandbox/SecuredJsCache;)V"
+            },
+            "indexes": "[18]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[1]",
+        "lineNumber": 76,
+        "description": "removed call to delight/nashornsandbox/internal/JsSanitizer::assertScriptEngine",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestCustomCache",
+                "name": "testCustomCacheUsage(delight.nashornsandbox.TestCustomCache)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer",
+                "method": "createSecuredJsCache",
+                "methodDesc": "(I)Ldelight/nashornsandbox/SecuredJsCache;"
+            },
+            "indexes": "[15]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[3]",
+        "lineNumber": 114,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/JsSanitizer::createSecuredJsCache",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer",
+                "method": "getInjectJs",
+                "methodDesc": "()Ljava/lang/String;"
+            },
+            "indexes": "[43]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[9]",
+        "lineNumber": 189,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAccessFunction",
+                "name": "test_access_variable(delight.nashornsandbox.TestAccessFunction)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer",
+                "method": "lambda$secureJs$0",
+                "methodDesc": "(Ljava/lang/String;[Ljavax/script/ScriptException;)Ljava/lang/String;"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[1]",
+        "lineNumber": 154,
+        "description": "replaced return value with \"\" for delight/nashornsandbox/internal/JsSanitizer::lambda$secureJs$0",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestCustomCache",
+                "name": "testCustomCacheUsage(delight.nashornsandbox.TestCustomCache)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer",
+                "method": "newSecuredJsCache",
+                "methodDesc": "(I)Ldelight/nashornsandbox/SecuredJsCache;"
+            },
+            "indexes": "[20]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[2]",
+        "lineNumber": 128,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/JsSanitizer::newSecuredJsCache",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer",
+                "method": "newSecuredJsCache",
+                "methodDesc": "(I)Ldelight/nashornsandbox/SecuredJsCache;"
+            },
+            "indexes": "[8]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[0]",
+        "lineNumber": 119,
+        "description": "Replaced integer addition with subtraction",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer",
+                "method": "secureJs",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[34]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[4]",
+        "lineNumber": 160,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestCustomCache",
+                "name": "testCustomCacheUsage(delight.nashornsandbox.TestCustomCache)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer",
+                "method": "secureJs",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[45]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[6]",
+        "lineNumber": 163,
+        "description": "replaced return value with \"\" for delight/nashornsandbox/internal/JsSanitizer::secureJs",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestCustomCache",
+                "name": "testCustomCacheUsage(delight.nashornsandbox.TestCustomCache)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer$1",
+                "method": "removeEldestEntry",
+                "methodDesc": "(Ljava/util/Map$Entry;)Z"
+            },
+            "indexes": "[15]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[4]",
+        "lineNumber": 125,
+        "description": "replaced boolean return with true for delight/nashornsandbox/internal/JsSanitizer$1::removeEldestEntry",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer$1",
+                "method": "removeEldestEntry",
+                "methodDesc": "(Ljava/util/Map$Entry;)Z"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[1]",
+        "lineNumber": 125,
+        "description": "changed conditional boundary",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer$1",
+                "method": "removeEldestEntry",
+                "methodDesc": "(Ljava/util/Map$Entry;)Z"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[1]",
+        "lineNumber": 125,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.LinkedHashMapSecuredJsCache",
+                "method": "getOrCreate",
+                "methodDesc": "(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;"
+            },
+            "indexes": "[12]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "LinkedHashMapSecuredJsCache.java",
+        "block": "[1]",
+        "lineNumber": 24,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.LinkedHashMapSecuredJsCache",
+                "method": "getOrCreate",
+                "methodDesc": "(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;"
+            },
+            "indexes": "[31]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator"
+        },
+        "filename": "LinkedHashMapSecuredJsCache.java",
+        "block": "[5]",
+        "lineNumber": 28,
+        "description": "replaced return value with \"\" for delight/nashornsandbox/internal/LinkedHashMapSecuredJsCache::getOrCreate",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "<init>",
+                "methodDesc": "(Ljavax/script/ScriptEngine;[Ljava/lang/String;)V"
+            },
+            "indexes": "[63]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[4]",
+        "lineNumber": 95,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestIssue40_ScriptEngineParameters",
+                "name": "test(delight.nashornsandbox.TestIssue40_ScriptEngineParameters)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue57",
+                "name": "testMapReduce(delight.nashornsandbox.TestIssue57)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "allowExitFunctions",
+                "methodDesc": "(Z)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 409,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "allowGlobalsObjects",
+                "methodDesc": "(Z)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 417,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "allowLoadFunctions",
+                "methodDesc": "(Z)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 401,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "allowReadFunctions",
+                "methodDesc": "(Z)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 393,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "assertScriptEngine",
+                "methodDesc": "()V"
+            },
+            "indexes": "[27]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[8]",
+        "lineNumber": 131,
+        "description": "removed call to delight/nashornsandbox/internal/NashornSandboxImpl::resetEngineBindings",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptions(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithExistingBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindingsScriptContext(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuitWithScriptContext(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue134",
+                "name": "test(delight.nashornsandbox.TestIssue134)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue151RegEx",
+                "name": "test_example_2(delight.nashornsandbox.TestIssue151RegEx)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "compile",
+                "methodDesc": "(Ljava/lang/String;)Ljavax/script/CompiledScript;"
+            },
+            "indexes": "[31]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[4]",
+        "lineNumber": 509,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::compile",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_catch_compiled(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_engine_working_after_crash(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "compile",
+                "methodDesc": "(Ljava/lang/String;)Ljavax/script/CompiledScript;"
+            },
+            "indexes": "[4]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 504,
+        "description": "removed call to delight/nashornsandbox/internal/NashornSandboxImpl::assertScriptEngine",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_catch_compiled(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_engine_working_after_crash(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "createScriptContext",
+                "methodDesc": "()Ldelight/nashornsandbox/SandboxScriptContext;"
+            },
+            "indexes": "[11]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 213,
+        "description": "removed call to delight/nashornsandbox/internal/NashornSandboxImpl::produceSecureBindings",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithExistingBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindingsScriptContext(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuitWithScriptContext(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue134",
+                "name": "test(delight.nashornsandbox.TestIssue134)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue151RegEx",
+                "name": "test_example_2(delight.nashornsandbox.TestIssue151RegEx)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "createScriptContext",
+                "methodDesc": "()Ldelight/nashornsandbox/SandboxScriptContext;"
+            },
+            "indexes": "[19]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[3]",
+        "lineNumber": 214,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::createScriptContext",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithExistingBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindingsScriptContext(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuitWithScriptContext(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue134",
+                "name": "test(delight.nashornsandbox.TestIssue134)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue151RegEx",
+                "name": "test_example_2(delight.nashornsandbox.TestIssue151RegEx)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "disallowAllClasses",
+                "methodDesc": "()V"
+            },
+            "indexes": "[10]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 357,
+        "description": "removed call to delight/nashornsandbox/internal/NashornSandboxImpl::allow",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue54",
+                "name": "test_valid(delight.nashornsandbox.TestIssue54)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "disallowAllClasses",
+                "methodDesc": "()V"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 354,
+        "description": "removed call to delight/nashornsandbox/internal/SandboxClassFilter::clear",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue54",
+                "name": "test_valid(delight.nashornsandbox.TestIssue54)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "engineBindingUnchanged",
+                "methodDesc": "()Z"
+            },
+            "indexes": "[43]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[15]",
+        "lineNumber": 144,
+        "description": "replaced boolean return with true for delight/nashornsandbox/internal/NashornSandboxImpl::engineBindingUnchanged",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptions(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithExistingBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindingsScriptContext(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuitWithScriptContext(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue134",
+                "name": "test(delight.nashornsandbox.TestIssue134)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue151RegEx",
+                "name": "test_example_2(delight.nashornsandbox.TestIssue151RegEx)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "eval",
+                "methodDesc": "(Ljava/lang/String;Ldelight/nashornsandbox/SandboxScriptContext;)Ljava/lang/Object;"
+            },
+            "indexes": "[8]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 236,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::eval",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithExistingBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindingsScriptContext(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue151RegEx",
+                "name": "test_example_2(delight.nashornsandbox.TestIssue151RegEx)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "eval",
+                "methodDesc": "(Ljava/lang/String;Ljavax/script/Bindings;)Ljava/lang/Object;"
+            },
+            "indexes": "[8]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 231,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::eval",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptionsWithBinding(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptionsWithBinding2(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewSimpleBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuitWithBindings(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_issue_86_continued_use(delight.nashornsandbox.TestMemoryLimit)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "eval",
+                "methodDesc": "(Ljavax/script/CompiledScript;Ljavax/script/Bindings;)Ljava/lang/Object;"
+            },
+            "indexes": "[8]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 521,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::eval",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "eval",
+                "methodDesc": "(Ljavax/script/CompiledScript;Ljavax/script/ScriptContext;)Ljava/lang/Object;"
+            },
+            "indexes": "[8]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 527,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::eval",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptContext)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "eval",
+                "methodDesc": "(Ljavax/script/CompiledScript;Ljavax/script/ScriptContext;Ljavax/script/Bindings;)Ljava/lang/Object;"
+            },
+            "indexes": "[25]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[4]",
+        "lineNumber": 536,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::eval",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptContext)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "eval",
+                "methodDesc": "(Ljavax/script/CompiledScript;Ljavax/script/ScriptContext;Ljavax/script/Bindings;)Ljava/lang/Object;"
+            },
+            "indexes": "[4]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 533,
+        "description": "removed call to delight/nashornsandbox/internal/NashornSandboxImpl::assertScriptEngine",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_catch_compiled(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestScriptInterruptionAndCatch",
+                "name": "test_engine_working_after_crash(delight.nashornsandbox.TestScriptInterruptionAndCatch)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "get",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/Object;"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 380,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::get",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAccessFunction",
+                "name": "test_access_variable(delight.nashornsandbox.TestAccessFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestInvocable",
+                "name": "testInvokeMethod(delight.nashornsandbox.TestInvocable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestManyEvalsAndInjections",
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getLazySandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[23]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[3]",
+        "lineNumber": 493,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::getLazySandboxedInvocable",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getLazySandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 450,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getSandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[12]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 443,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestInvocable",
+                "name": "testInvokeFunction(delight.nashornsandbox.TestInvocable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestInvocable",
+                "name": "testInvokeMethod(delight.nashornsandbox.TestInvocable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue102",
+                "name": "test(delight.nashornsandbox.TestIssue102)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getSandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[18]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[2]",
+        "lineNumber": 444,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::getSandboxedInvocable",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestInvocable",
+                "name": "testInvokeFunction(delight.nashornsandbox.TestInvocable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestInvocable",
+                "name": "testInvokeMethod(delight.nashornsandbox.TestInvocable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue102",
+                "name": "test(delight.nashornsandbox.TestIssue102)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getSandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[24]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[4]",
+        "lineNumber": 446,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::getSandboxedInvocable",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getSandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 443,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestInvocable",
+                "name": "testInvokeFunction(delight.nashornsandbox.TestInvocable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestInvocable",
+                "name": "testInvokeMethod(delight.nashornsandbox.TestInvocable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue102",
+                "name": "test(delight.nashornsandbox.TestIssue102)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "inject",
+                "methodDesc": "(Ljava/lang/String;Ljava/lang/Object;)V"
+            },
+            "indexes": "[10]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[3]",
+        "lineNumber": 362,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGlobalVariable",
+                "name": "test_java_variable(delight.nashornsandbox.TestGlobalVariable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestManyEvalsAndInjections",
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "inject",
+                "methodDesc": "(Ljava/lang/String;Ljava/lang/Object;)V"
+            },
+            "indexes": "[16]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[5]",
+        "lineNumber": 363,
+        "description": "removed call to delight/nashornsandbox/internal/NashornSandboxImpl::allow",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGlobalVariable",
+                "name": "test_java_variable(delight.nashornsandbox.TestGlobalVariable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestManyEvalsAndInjections",
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "inject",
+                "methodDesc": "(Ljava/lang/String;Ljava/lang/Object;)V"
+            },
+            "indexes": "[24]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[6]",
+        "lineNumber": 365,
+        "description": "removed call to javax/script/ScriptEngine::put",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGlobalVariable",
+                "name": "test_java_variable(delight.nashornsandbox.TestGlobalVariable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestManyEvalsAndInjections",
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "inject",
+                "methodDesc": "(Ljava/lang/String;Ljava/lang/Object;)V"
+            },
+            "indexes": "[4]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 362,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGlobalVariable",
+                "name": "test_java_variable(delight.nashornsandbox.TestGlobalVariable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestManyEvalsAndInjections",
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "secureBindings",
+                "methodDesc": "(Ljavax/script/Bindings;)Ljavax/script/Bindings;"
+            },
+            "indexes": "[15]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[2]",
+        "lineNumber": 269,
+        "description": "removed call to javax/script/Bindings::putAll",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptionsWithBinding(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptionsWithBinding2(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewSimpleBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuitWithBindings(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_issue_86_continued_use(delight.nashornsandbox.TestMemoryLimit)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "secureBindings",
+                "methodDesc": "(Ljavax/script/Bindings;)Ljavax/script/Bindings;"
+            },
+            "indexes": "[19]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[3]",
+        "lineNumber": 271,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::secureBindings",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptionsWithBinding(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestBindingsInsert",
+                "name": "testInsertOptionsWithBinding2(delight.nashornsandbox.TestBindingsInsert)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptBindings",
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewSimpleBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuitWithBindings(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_issue_86_continued_use(delight.nashornsandbox.TestMemoryLimit)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "setMaxPreparedStatements",
+                "methodDesc": "(I)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 430,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestGetFunction",
+                "name": "test(delight.nashornsandbox.TestGetFunction)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestLimitCPU",
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.JsSanitizerTest",
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "setWriter",
+                "methodDesc": "(Ljava/io/Writer;)V"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 425,
+        "description": "removed call to javax/script/ScriptContext::setWriter",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestSetWriter",
+                "name": "test(delight.nashornsandbox.TestSetWriter)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl$1",
+                "method": "getContext",
+                "methodDesc": "()Ljavax/script/ScriptContext;"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 218,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl$1::getContext",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContext",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContext)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithExistingBindings(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings",
+                "name": "testWithNewBindingsScriptContext(delight.nashornsandbox.TestEvalWithScriptContextWithNewBindings)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "test(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestEvalWithScriptContextWithVariables",
+                "name": "testWithCPUAndMemory(delight.nashornsandbox.TestEvalWithScriptContextWithVariables)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestExit",
+                "name": "testQuitWithScriptContext(delight.nashornsandbox.TestExit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue134",
+                "name": "test(delight.nashornsandbox.TestIssue134)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue151RegEx",
+                "name": "test_example_2(delight.nashornsandbox.TestIssue151RegEx)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[124]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[28]",
+        "lineNumber": 36,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[142]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[33]",
+        "lineNumber": 39,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[156]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[36]",
+        "lineNumber": 40,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[164]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[39]",
+        "lineNumber": 40,
+        "description": "Replaced integer addition with subtraction",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[174]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[40]",
+        "lineNumber": 43,
+        "description": "changed conditional boundary",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[174]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[40]",
+        "lineNumber": 43,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[191]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[45]",
+        "lineNumber": 47,
+        "description": "replaced return value with \"\" for delight/nashornsandbox/internal/RemoveComments::perform",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[20]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[3]",
+        "lineNumber": 21,
+        "description": "changed conditional boundary",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[20]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[3]",
+        "lineNumber": 21,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[27]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[4]",
+        "lineNumber": 22,
+        "description": "Replaced integer addition with subtraction",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[49]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[10]",
+        "lineNumber": 26,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[58]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[13]",
+        "lineNumber": 27,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[68]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[16]",
+        "lineNumber": 27,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[87]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[20]",
+        "lineNumber": 30,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[90]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[21]",
+        "lineNumber": 30,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[99]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[23]",
+        "lineNumber": 30,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestRemoveComments",
+                "name": "test(delight.nashornsandbox.TestRemoveComments)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.SandboxClassFilter",
+                "method": "clear",
+                "methodDesc": "()V"
+            },
+            "indexes": "[10]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "SandboxClassFilter.java",
+        "block": "[1]",
+        "lineNumber": 37,
+        "description": "removed call to java/util/Set::clear",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue54",
+                "name": "test_valid(delight.nashornsandbox.TestIssue54)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.SandboxClassFilter",
+                "method": "clear",
+                "methodDesc": "()V"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "SandboxClassFilter.java",
+        "block": "[0]",
+        "lineNumber": 36,
+        "description": "removed call to java/util/Set::clear",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestIssue54",
+                "name": "test_valid(delight.nashornsandbox.TestIssue54)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.SandboxClassFilter",
+                "method": "contains",
+                "methodDesc": "(Ljava/lang/Class;)Z"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator"
+        },
+        "filename": "SandboxClassFilter.java",
+        "block": "[1]",
+        "lineNumber": 41,
+        "description": "replaced boolean return with false for delight/nashornsandbox/internal/SandboxClassFilter::contains",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestGlobalVariable",
+                "name": "test_java_variable(delight.nashornsandbox.TestGlobalVariable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestManyEvalsAndInjections",
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.SandboxClassFilter",
+                "method": "contains",
+                "methodDesc": "(Ljava/lang/Class;)Z"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator"
+        },
+        "filename": "SandboxClassFilter.java",
+        "block": "[1]",
+        "lineNumber": 41,
+        "description": "replaced boolean return with true for delight/nashornsandbox/internal/SandboxClassFilter::contains",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestAllowAndDisallowClasses",
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestGlobalVariable",
+                "name": "test_java_variable(delight.nashornsandbox.TestGlobalVariable)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestManyEvalsAndInjections",
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.ThreadMonitor",
+                "method": "getCheckInterval",
+                "methodDesc": "(J)J"
+            },
+            "indexes": "[11]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator"
+        },
+        "filename": "ThreadMonitor.java",
+        "block": "[1]",
+        "lineNumber": 183,
+        "description": "replaced long return with 0 for delight/nashornsandbox/internal/ThreadMonitor::getCheckInterval",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test(delight.nashornsandbox.TestMemoryLimit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_issue_86_continued_use(delight.nashornsandbox.TestMemoryLimit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_no_abuse(delight.nashornsandbox.TestMemoryLimit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_noexpectedbraces(delight.nashornsandbox.TestMemoryLimit)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.ThreadMonitor",
+                "method": "isCpuTimeExided",
+                "methodDesc": "(J)Z"
+            },
+            "indexes": "[11]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator"
+        },
+        "filename": "ThreadMonitor.java",
+        "block": "[1]",
+        "lineNumber": 194,
+        "description": "replaced boolean return with true for delight/nashornsandbox/internal/ThreadMonitor::isCpuTimeExided",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test(delight.nashornsandbox.TestMemoryLimit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_issue_86_continued_use(delight.nashornsandbox.TestMemoryLimit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_no_abuse(delight.nashornsandbox.TestMemoryLimit)"
+            },
+            {
+                "testClass": "delight.nashornsandbox.TestMemoryLimit",
+                "name": "test_noexpectedbraces(delight.nashornsandbox.TestMemoryLimit)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.ThreadMonitor",
+                "method": "registerThreadToMonitor",
+                "methodDesc": "(Ljava/lang/Thread;)Z"
+            },
+            "indexes": "[19]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator"
+        },
+        "filename": "ThreadMonitor.java",
+        "block": "[1]",
+        "lineNumber": 242,
+        "description": "replaced boolean return with false for delight/nashornsandbox/internal/ThreadMonitor::registerThreadToMonitor",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.ThreadMonitor",
+                "method": "registerThreadToMonitor",
+                "methodDesc": "(Ljava/lang/Thread;)Z"
+            },
+            "indexes": "[19]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator"
+        },
+        "filename": "ThreadMonitor.java",
+        "block": "[1]",
+        "lineNumber": 242,
+        "description": "replaced boolean return with true for delight/nashornsandbox/internal/ThreadMonitor::registerThreadToMonitor",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.ThreadMonitor",
+                "method": "run",
+                "methodDesc": "()V"
+            },
+            "indexes": "[42]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator"
+        },
+        "filename": "ThreadMonitor.java",
+        "block": "[3]",
+        "lineNumber": 116,
+        "description": "Replaced long division with multiplication",
+        "testsInOrder": [
+            {
+                "testClass": "delight.nashornsandbox.internal.TestExecutorThreadNotSet",
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)"
+            }
+        ]
+    }
+]

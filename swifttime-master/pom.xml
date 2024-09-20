@@ -49,6 +49,8 @@
                     <verbosity>RANDOM_VERBOSE</verbosity>
 <!--                    <randomSeed>99999</randomSeed>-->
 <!--                    <skipFailingTests>true</skipFailingTests>-->
+                    <readFromFile>true</readFromFile>
+                    <filePath>""</filePath>
                     <outputFormats>
                         <outputFormat>XML</outputFormat>
                     </outputFormats>

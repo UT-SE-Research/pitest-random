@@ -1,0 +1,1410 @@
+[
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.NashornSandboxes",
+                "method": "create",
+                "methodDesc": "([Ljava/lang/String;)Ldelight/nashornsandbox/NashornSandbox;"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxes.java",
+        "block": "[1]",
+        "lineNumber": 38,
+        "description": "replaced return value with null for delight/nashornsandbox/NashornSandboxes::create",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestIssue40_ScriptEngineParameters)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.exceptions.ScriptAbuseException",
+                "method": "getMessage",
+                "methodDesc": "()Ljava/lang/String;"
+            },
+            "indexes": "[17]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator"
+        },
+        "filename": "ScriptAbuseException.java",
+        "block": "[4]",
+        "lineNumber": 41,
+        "description": "replaced return value with \"\" for delight/nashornsandbox/exceptions/ScriptAbuseException::getMessage",
+        "testsInOrder": [
+            {
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.exceptions.ScriptAbuseException",
+                "method": "getMessage",
+                "methodDesc": "()Ljava/lang/String;"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "ScriptAbuseException.java",
+        "block": "[0]",
+        "lineNumber": 37,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.exceptions.ScriptAbuseException",
+                "method": "isScriptKilled",
+                "methodDesc": "()Z"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator"
+        },
+        "filename": "ScriptAbuseException.java",
+        "block": "[0]",
+        "lineNumber": 32,
+        "description": "replaced boolean return with false for delight/nashornsandbox/exceptions/ScriptAbuseException::isScriptKilled",
+        "testsInOrder": [
+            {
+                "name": "test_only_while_good_script(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_while_plus_iteration(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_do_while(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_only_while(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestMemoryLimit)",
+                "time": 6000
+            },
+            {
+                "name": "test_while_plus_iteration_bad_scrip_allowed(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_evil_script(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_only_while_allowed_bad_script(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_while_plus_iteration_bad_script(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_noexpectedbraces(delight.nashornsandbox.TestMemoryLimit)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.exceptions.ScriptAbuseException",
+                "method": "isScriptKilled",
+                "methodDesc": "()Z"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator"
+        },
+        "filename": "ScriptAbuseException.java",
+        "block": "[0]",
+        "lineNumber": 32,
+        "description": "replaced boolean return with true for delight/nashornsandbox/exceptions/ScriptAbuseException::isScriptKilled",
+        "testsInOrder": [
+            {
+                "name": "test_evil_script(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestMemoryLimit)",
+                "time": 6000
+            },
+            {
+                "name": "test_noexpectedbraces(delight.nashornsandbox.TestMemoryLimit)",
+                "time": 6000
+            },
+            {
+                "name": "test_only_while(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_while_plus_iteration_bad_script(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_while_plus_iteration(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_while_plus_iteration_bad_scrip_allowed(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_only_while_allowed_bad_script(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_only_while_good_script(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "test_do_while(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.EvaluateCompiledOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[36]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "EvaluateCompiledOperation.java",
+        "block": "[8]",
+        "lineNumber": 45,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/EvaluateCompiledOperation::executeScriptEngineOperation",
+        "testsInOrder": [
+            {
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.EvaluateCompiledOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[50]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "EvaluateCompiledOperation.java",
+        "block": "[11]",
+        "lineNumber": 47,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/EvaluateCompiledOperation::executeScriptEngineOperation",
+        "testsInOrder": [
+            {
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptContext)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.EvaluateCompiledOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[57]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "EvaluateCompiledOperation.java",
+        "block": "[13]",
+        "lineNumber": 49,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/EvaluateCompiledOperation::executeScriptEngineOperation",
+        "testsInOrder": [
+            {
+                "name": "test_catch_compiled(delight.nashornsandbox.TestScriptInterruptionAndCatch)",
+                "time": 6000
+            },
+            {
+                "name": "test_engine_working_after_crash(delight.nashornsandbox.TestScriptInterruptionAndCatch)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.InvokeOperation",
+                "method": "executeScriptEngineOperation",
+                "methodDesc": "(Ljavax/script/ScriptEngine;)Ljava/lang/Object;"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "InvokeOperation.java",
+        "block": "[0]",
+        "lineNumber": 20,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer",
+                "method": "<init>",
+                "methodDesc": "(Ljavax/script/ScriptEngine;Ldelight/nashornsandbox/SecuredJsCache;)V"
+            },
+            "indexes": "[18]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[1]",
+        "lineNumber": 76,
+        "description": "removed call to delight/nashornsandbox/internal/JsSanitizer::assertScriptEngine",
+        "testsInOrder": [
+            {
+                "name": "testCustomCacheUsage(delight.nashornsandbox.TestCustomCache)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.JsSanitizer",
+                "method": "getInjectJs",
+                "methodDesc": "()Ljava/lang/String;"
+            },
+            "indexes": "[43]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "JsSanitizer.java",
+        "block": "[9]",
+        "lineNumber": 189,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test_access_variable(delight.nashornsandbox.TestAccessFunction)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "<init>",
+                "methodDesc": "(Ljavax/script/ScriptEngine;[Ljava/lang/String;)V"
+            },
+            "indexes": "[63]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[4]",
+        "lineNumber": 95,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "testMapReduce(delight.nashornsandbox.TestIssue57)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestIssue40_ScriptEngineParameters)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "allowExitFunctions",
+                "methodDesc": "(Z)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 409,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            },
+            {
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "allowGlobalsObjects",
+                "methodDesc": "(Z)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 417,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            },
+            {
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "allowLoadFunctions",
+                "methodDesc": "(Z)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 401,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            },
+            {
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "allowPrintFunctions",
+                "methodDesc": "(Z)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 385,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestSetWriter)",
+                "time": 6000
+            },
+            {
+                "name": "test_graal(delight.nashornsandbox.TestSwitch)",
+                "time": 6000
+            },
+            {
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            },
+            {
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            },
+            {
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestSwitch)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "allowReadFunctions",
+                "methodDesc": "(Z)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 393,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            },
+            {
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "disallow",
+                "methodDesc": "(Ljava/lang/Class;)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 344,
+        "description": "removed call to delight/nashornsandbox/internal/SandboxClassFilter::remove",
+        "testsInOrder": [
+            {
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)",
+                "time": 6000
+            },
+            {
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "eval",
+                "methodDesc": "(Ljavax/script/CompiledScript;Ljavax/script/Bindings;)Ljava/lang/Object;"
+            },
+            "indexes": "[8]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 521,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::eval",
+        "testsInOrder": [
+            {
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptBindings)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "eval",
+                "methodDesc": "(Ljavax/script/CompiledScript;Ljavax/script/ScriptContext;)Ljava/lang/Object;"
+            },
+            "indexes": "[8]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 527,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::eval",
+        "testsInOrder": [
+            {
+                "name": "test_compiled(delight.nashornsandbox.TestEvalWithScriptContext)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getLazySandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[23]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[3]",
+        "lineNumber": 493,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::getLazySandboxedInvocable",
+        "testsInOrder": [
+            {
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)",
+                "time": 6000
+            },
+            {
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getLazySandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 450,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getSandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[12]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 443,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "testInvokeMethod(delight.nashornsandbox.TestInvocable)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestIssue102)",
+                "time": 6000
+            },
+            {
+                "name": "testInvokeFunction(delight.nashornsandbox.TestInvocable)",
+                "time": 6000
+            },
+            {
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getSandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[18]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[2]",
+        "lineNumber": 444,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::getSandboxedInvocable",
+        "testsInOrder": [
+            {
+                "name": "testInvokeMethod(delight.nashornsandbox.TestInvocable)",
+                "time": 6000
+            },
+            {
+                "name": "testInvokeFunction(delight.nashornsandbox.TestInvocable)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestIssue102)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getSandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[24]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[4]",
+        "lineNumber": 446,
+        "description": "replaced return value with null for delight/nashornsandbox/internal/NashornSandboxImpl::getSandboxedInvocable",
+        "testsInOrder": [
+            {
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)",
+                "time": 6000
+            },
+            {
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "getSandboxedInvocable",
+                "methodDesc": "()Ljavax/script/Invocable;"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 443,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)",
+                "time": 6000
+            },
+            {
+                "name": "testInvokeMethod(delight.nashornsandbox.TestInvocable)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestIssue102)",
+                "time": 6000
+            },
+            {
+                "name": "testCpuLmitInInvocable(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "testInvokeFunction(delight.nashornsandbox.TestInvocable)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "inject",
+                "methodDesc": "(Ljava/lang/String;Ljava/lang/Object;)V"
+            },
+            "indexes": "[10]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[3]",
+        "lineNumber": 362,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test_java_variable(delight.nashornsandbox.TestGlobalVariable)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "inject",
+                "methodDesc": "(Ljava/lang/String;Ljava/lang/Object;)V"
+            },
+            "indexes": "[16]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[5]",
+        "lineNumber": 363,
+        "description": "removed call to delight/nashornsandbox/internal/NashornSandboxImpl::allow",
+        "testsInOrder": [
+            {
+                "name": "test_java_variable(delight.nashornsandbox.TestGlobalVariable)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "inject",
+                "methodDesc": "(Ljava/lang/String;Ljava/lang/Object;)V"
+            },
+            "indexes": "[24]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[6]",
+        "lineNumber": 365,
+        "description": "removed call to javax/script/ScriptEngine::put",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)",
+                "time": 6000
+            },
+            {
+                "name": "test_java_variable(delight.nashornsandbox.TestGlobalVariable)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "inject",
+                "methodDesc": "(Ljava/lang/String;Ljava/lang/Object;)V"
+            },
+            "indexes": "[4]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 362,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestManyEvalsAndInjections)",
+                "time": 6000
+            },
+            {
+                "name": "test_java_variable(delight.nashornsandbox.TestGlobalVariable)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "isAllowed",
+                "methodDesc": "(Ljava/lang/Class;)Z"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 349,
+        "description": "replaced boolean return with false for delight/nashornsandbox/internal/NashornSandboxImpl::isAllowed",
+        "testsInOrder": [
+            {
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)",
+                "time": 6000
+            },
+            {
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "isAllowed",
+                "methodDesc": "(Ljava/lang/Class;)Z"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 349,
+        "description": "replaced boolean return with true for delight/nashornsandbox/internal/NashornSandboxImpl::isAllowed",
+        "testsInOrder": [
+            {
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)",
+                "time": 6000
+            },
+            {
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "setMaxPreparedStatements",
+                "methodDesc": "(I)V"
+            },
+            "indexes": "[6]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[0]",
+        "lineNumber": 430,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "testIsMatchCpuAbuseDirect(delight.nashornsandbox.TestLimitCPU)",
+                "time": 6000
+            },
+            {
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)",
+                "time": 6000
+            },
+            {
+                "name": "test_issue_66_case1(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            },
+            {
+                "name": "test(delight.nashornsandbox.TestGetFunction)",
+                "time": 6000
+            },
+            {
+                "name": "test_issue_66_case2(delight.nashornsandbox.internal.JsSanitizerTest)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.NashornSandboxImpl",
+                "method": "setWriter",
+                "methodDesc": "(Ljava/io/Writer;)V"
+            },
+            "indexes": "[7]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "NashornSandboxImpl.java",
+        "block": "[1]",
+        "lineNumber": 425,
+        "description": "removed call to javax/script/ScriptContext::setWriter",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestSetWriter)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[124]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[28]",
+        "lineNumber": 36,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[142]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[33]",
+        "lineNumber": 39,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[156]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[36]",
+        "lineNumber": 40,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[164]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[39]",
+        "lineNumber": 40,
+        "description": "Replaced integer addition with subtraction",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[174]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[40]",
+        "lineNumber": 43,
+        "description": "changed conditional boundary",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[174]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[40]",
+        "lineNumber": 43,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[191]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[45]",
+        "lineNumber": 47,
+        "description": "replaced return value with \"\" for delight/nashornsandbox/internal/RemoveComments::perform",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[20]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[3]",
+        "lineNumber": 21,
+        "description": "changed conditional boundary",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[20]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[3]",
+        "lineNumber": 21,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[27]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[4]",
+        "lineNumber": 22,
+        "description": "Replaced integer addition with subtraction",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[49]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[10]",
+        "lineNumber": 26,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[58]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[13]",
+        "lineNumber": 27,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[65]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[15]",
+        "lineNumber": 27,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[68]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[16]",
+        "lineNumber": 27,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[87]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[20]",
+        "lineNumber": 30,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[90]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[21]",
+        "lineNumber": 30,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.RemoveComments",
+                "method": "perform",
+                "methodDesc": "(Ljava/lang/String;)Ljava/lang/String;"
+            },
+            "indexes": "[99]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+        },
+        "filename": "RemoveComments.java",
+        "block": "[23]",
+        "lineNumber": 30,
+        "description": "negated conditional",
+        "testsInOrder": [
+            {
+                "name": "test(delight.nashornsandbox.TestRemoveComments)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.SandboxClassFilter",
+                "method": "clear",
+                "methodDesc": "()V"
+            },
+            "indexes": "[10]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "SandboxClassFilter.java",
+        "block": "[1]",
+        "lineNumber": 37,
+        "description": "removed call to java/util/Set::clear",
+        "testsInOrder": [
+            {
+                "name": "test_valid(delight.nashornsandbox.TestIssue54)",
+                "time": 6000
+            },
+            {
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)",
+                "time": 6000
+            },
+            {
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.SandboxClassFilter",
+                "method": "clear",
+                "methodDesc": "()V"
+            },
+            "indexes": "[5]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+        },
+        "filename": "SandboxClassFilter.java",
+        "block": "[0]",
+        "lineNumber": 36,
+        "description": "removed call to java/util/Set::clear",
+        "testsInOrder": [
+            {
+                "name": "test_valid(delight.nashornsandbox.TestIssue54)",
+                "time": 6000
+            },
+            {
+                "name": "test_file_compiled(delight.nashornsandbox.TestAllowAndDisallowClasses)",
+                "time": 6000
+            },
+            {
+                "name": "test_file(delight.nashornsandbox.TestAllowAndDisallowClasses)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.ThreadMonitor",
+                "method": "registerThreadToMonitor",
+                "methodDesc": "(Ljava/lang/Thread;)Z"
+            },
+            "indexes": "[19]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator"
+        },
+        "filename": "ThreadMonitor.java",
+        "block": "[1]",
+        "lineNumber": 242,
+        "description": "replaced boolean return with false for delight/nashornsandbox/internal/ThreadMonitor::registerThreadToMonitor",
+        "testsInOrder": [
+            {
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.ThreadMonitor",
+                "method": "registerThreadToMonitor",
+                "methodDesc": "(Ljava/lang/Thread;)Z"
+            },
+            "indexes": "[19]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator"
+        },
+        "filename": "ThreadMonitor.java",
+        "block": "[1]",
+        "lineNumber": 242,
+        "description": "replaced boolean return with true for delight/nashornsandbox/internal/ThreadMonitor::registerThreadToMonitor",
+        "testsInOrder": [
+            {
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)",
+                "time": 6000
+            }
+        ]
+    },
+    {
+        "id": {
+            "location": {
+                "clazz": "delight.nashornsandbox.internal.ThreadMonitor",
+                "method": "run",
+                "methodDesc": "()V"
+            },
+            "indexes": "[42]",
+            "mutator": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator"
+        },
+        "filename": "ThreadMonitor.java",
+        "block": "[3]",
+        "lineNumber": 116,
+        "description": "Replaced long division with multiplication",
+        "testsInOrder": [
+            {
+                "name": "executor_not_set_should_prevent_invocation_from_running_indefinitely(delight.nashornsandbox.internal.TestExecutorThreadNotSet)",
+                "time": 6000
+            }
+        ]
+    }
+]

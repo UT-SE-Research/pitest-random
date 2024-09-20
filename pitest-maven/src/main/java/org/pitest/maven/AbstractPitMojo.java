@@ -425,6 +425,12 @@ public class AbstractPitMojo extends AbstractMojo {
   @Parameter(property = "randomGroup", defaultValue = "false")
   private boolean randomGroup;
 
+  @Parameter(property = "readFromFile", defaultValue = "false")
+  private boolean readFromFile;
+
+  @Parameter(property = "filePath")
+  private String filePath;
+
   @Inject
   public AbstractPitMojo(RepositorySystem repositorySystem) {
     this(new RunPitStrategy(), new DependencyFilter(PluginServices.makeForLoader(
@@ -815,6 +821,14 @@ public class AbstractPitMojo extends AbstractMojo {
 
   public boolean isRandomGroup() {
     return randomGroup;
+  }
+
+  public boolean isReadFromFile() {
+    return readFromFile;
+  }
+
+  public String getFilePath() {
+    return filePath;
   }
 
 

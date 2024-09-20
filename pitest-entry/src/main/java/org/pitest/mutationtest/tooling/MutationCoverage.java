@@ -384,6 +384,10 @@ public class MutationCoverage {
     final MutationGrouper grouper = this.settings.getMutationGrouper().makeFactory(this.code, this.data);
     final MutationTestBuilder builder = new MutationTestBuilder(wf, history,
         source, grouper);
+    if (data.isReadFromFile()) {
+      LOG.info("Load Mutants from Json File");
+      return builder.createMutationTestUnits(this.code.getCodeUnderTestNames(), data.getFilePath(), coverageData);
+    }
     if (data.getVerbosity() == Verbosity.RANDOM_VERBOSE) {
       if (data.isRandomMutant()) {
         LOG.info("Random Mutants Turned On");
@@ -392,6 +396,7 @@ public class MutationCoverage {
     }
     return builder.createMutationTestUnits(this.code.getCodeUnderTestNames());
   }
+
   private void checkMutationsFound(final List<MutationAnalysisUnit> tus) {
     if (tus.isEmpty()) {
       if (this.data.shouldFailWhenNoMutations()) {

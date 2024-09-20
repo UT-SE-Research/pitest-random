@@ -43,6 +43,14 @@ public final class TestInfo implements Serializable {
     this.blocks = blocksCovered;
   }
 
+  public TestInfo(final String name, final int time) {
+    this.name = name;
+    this.definingClass = null;
+    this.time = time;
+    this.blocks = 0;
+    this.testee = null;
+  }
+
   public String getName() {
     return this.name;
   }

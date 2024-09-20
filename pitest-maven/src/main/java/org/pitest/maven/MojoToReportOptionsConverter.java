@@ -250,6 +250,8 @@ public class MojoToReportOptionsConverter {
     data.setRandomTest(this.mojo.isRandomTest());
     data.setRandomGroup(this.mojo.isRandomGroup());
     data.setRandomSeed(this.mojo.getRandomSeed());
+    data.setReadFromFile(this.mojo.isReadFromFile());
+    data.setFilePath(this.mojo.getFilePath());
 
     if (this.mojo.getProjectBase() != null) {
       data.setProjectBase(FileSystems.getDefault().getPath(this.mojo.getProjectBase()));
