@@ -180,17 +180,6 @@ public class MutationCoverage {
         }
       }
     }
-//    System.out.println("Test Order:");
-
-//    for (MutationAnalysisUnit mutationTestUnit : tus) {
-//      MutationTestUnit unit = (MutationTestUnit)mutationTestUnit;
-//      Collection<MutationDetails> mutations = unit.getAvailableMutations();
-//      for (MutationDetails mutation : mutations) {
-//        List<TestInfo> testsInOrder = mutation.getTestsInOrder();
-//
-//      }
-//    }
-
 
     LOG.info("Created " + tus.size() + " mutation test units" );
 
@@ -386,12 +375,14 @@ public class MutationCoverage {
         source, grouper);
     if (data.isReadFromFile()) {
       LOG.info("Load Mutants from Json File");
-      return builder.createMutationTestUnits(this.code.getCodeUnderTestNames(), data.getFilePath(), coverageData);
+      return builder.createMutationTestUnits(this.code.getCodeUnderTestNames(),
+          coverageData, data.getFilePath());
     }
     if (data.getVerbosity() == Verbosity.RANDOM_VERBOSE) {
       if (data.isRandomMutant()) {
         LOG.info("Random Mutants Turned On");
-        return builder.createMutationTestUnits(this.code.getCodeUnderTestNames(),data.getPitestRandom());
+        return builder.createMutationTestUnits(this.code.getCodeUnderTestNames(),
+            data.getPitestRandom());
       }
     }
     return builder.createMutationTestUnits(this.code.getCodeUnderTestNames());

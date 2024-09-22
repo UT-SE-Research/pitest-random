@@ -51,6 +51,23 @@ public class MutationTestBuilder {
   private final WorkerFactory    workerFactory;
   private final MutationGrouper  grouper;
 
+  public static class UniqueTestInfo {
+    String name;
+    String definingClass;
+
+    public UniqueTestInfo(String name, String definingClass) {
+      this.name = name;
+      this.definingClass = internIfNotNull(definingClass);
+    }
+
+    private static String internIfNotNull(final String string) {
+      if (string == null) {
+        return null;
+      }
+      return string.intern();
+    }
+  }
+
   public MutationTestBuilder(final WorkerFactory workerFactory,
                              final History analyser,
                              final MutationSource mutationSource,
@@ -95,13 +112,117 @@ public class MutationTestBuilder {
     return tus;
   }
 
+  public List<MutationAnalysisUnit> createMutationTestUnits(
+      final Collection<ClassName> codeClasses, Random random) {
+    final List<MutationAnalysisUnit> tus = new ArrayList<>();
+
+    final List<MutationDetails> mutations = codeClasses.stream()
+        .flatMap(c -> mutationSource.createMutations(c).stream())
+        .collect(Collectors.toList());
+
+    mutations.sort(comparing(MutationDetails::getId));
+
+    List<MutationResult> analysisUnits = this.analyser.analyse(mutations);
+
+    Collection<MutationDetails> needProcessing = filterAlreadyAnalysedMutations(mutations, analysisUnits);
+
+    List<MutationResult> analysedMutations = analysisUnits.stream()
+        .filter(r -> r.getStatus() != DetectionStatus.NOT_STARTED)
+        .collect(Collectors.toList());
+
+    if (!analysedMutations.isEmpty()) {
+      tus.add(makePreAnalysedUnit(analysedMutations));
+    }
+
+    if (!needProcessing.isEmpty()) {
+      for (final Collection<MutationDetails> ms : this.grouper.groupMutations(
+          codeClasses, needProcessing)) {
+        ArrayList<MutationDetails> mutationDetails = new ArrayList<>(ms);
+        Collections.shuffle(mutationDetails, random);
+        tus.add(makeUnanalysedUnit(mutationDetails));
+      }
+    }
+    tus.sort(new AnalysisPriorityComparator());
+    return tus;
+  }
+
+  public List<MutationAnalysisUnit> createMutationTestUnits(
+      final Collection<ClassName> codeClasses, CoverageDatabase coverageData, String filePath) {
+    final List<MutationAnalysisUnit> tus = new ArrayList<>();
+
+    final List<MutationDetails> rootMutations = codeClasses.stream()
+        .flatMap(c -> mutationSource.createMutations(c).stream())
+        .collect(Collectors.toList());
+
+    List<MutationIdentifier> decidedIds = new ArrayList<>();
+    List<List<UniqueTestInfo>> decidedTests = new ArrayList<>();
+    try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filePath);
+         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+      JsonElement jsonElement = JsonParser.parseReader(reader);
+      JsonArray mutantArray = jsonElement.getAsJsonArray();
+      for (JsonElement mutantElement : mutantArray) {
+        JsonObject mutant = mutantElement.getAsJsonObject();
+        MutationIdentifier id = parseMutationIdentifier(mutant.getAsJsonObject("id"));
+        decidedIds.add(id);
+        if (!(coverageData instanceof NoCoverage)) {
+          decidedTests.add(parseTestsInOrder(mutant.getAsJsonArray("testsInOrder")));
+        }
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    List<MutationDetails> mutations = new ArrayList<>();
+    for (int i = 0; i < decidedIds.size(); i++) {
+      for (final MutationDetails md : rootMutations) {
+        List<TestInfo> testInfos = new ArrayList<>();
+        if (decidedIds.get(i).equals(md.getId())) {
+          if (!decidedTests.isEmpty()) {
+            for (UniqueTestInfo uti : decidedTests.get(i)) {
+              for (TestInfo ti : md.getTestsInOrder()) {
+                if (uti.name.equals(ti.getName())
+                    && uti.definingClass.equals(ti.getDefiningClass())) {
+                  testInfos.add(ti);
+                }
+              }
+            }
+            md.addTestsInOrder(testInfos);
+          }
+          mutations.add(md);
+        }
+      }
+    }
+    mutations.sort(comparing(MutationDetails::getId));
+
+    List<MutationResult> analysisUnits = this.analyser.analyse(mutations);
+
+    Collection<MutationDetails> needProcessing = filterAlreadyAnalysedMutations(mutations, analysisUnits);
+
+    List<MutationResult> analysedMutations = analysisUnits.stream()
+        .filter(r -> r.getStatus() != DetectionStatus.NOT_STARTED)
+        .collect(Collectors.toList());
+
+    if (!analysedMutations.isEmpty()) {
+      tus.add(makePreAnalysedUnit(analysedMutations));
+    }
+
+    if (!needProcessing.isEmpty()) {
+      for (final Collection<MutationDetails> ms : this.grouper.groupMutations(
+          codeClasses, needProcessing)) {
+        tus.add(makeUnanalysedUnit(ms));
+      }
+    }
+
+    tus.sort(new AnalysisPriorityComparator());
+    return tus;
+  }
+
   public static List<Integer> parseStringToIntegers(String input) {
     String sanitized = input.replaceAll("[\\[\\]]", "");
-    List<Integer> numbers = Arrays.stream(sanitized.split(","))
+    return Arrays.stream(sanitized.split(","))
         .map(String::trim)
         .map(Integer::parseInt)
         .collect(Collectors.toList());
-    return numbers;
   }
 
   private static MutationIdentifier parseMutationIdentifier(JsonObject o) {
@@ -121,85 +242,15 @@ public class MutationTestBuilder {
     }
   }
 
-  private static ArrayList<TestInfo> parseTestsInOrder(JsonArray testArray) {
-    ArrayList<TestInfo> testInfoList = new ArrayList<>();
+  private static ArrayList<UniqueTestInfo> parseTestsInOrder(JsonArray testArray) {
+    ArrayList<UniqueTestInfo> tests = new ArrayList<>();
     for (JsonElement test : testArray) {
       JsonObject testObject = test.getAsJsonObject();
       String name = testObject.get("name").getAsString();
-      int time = testObject.get("time").getAsInt();
-      TestInfo testInfo = new TestInfo(name, time);
-      testInfoList.add(testInfo);
+      String definingClass = testObject.get("definingClass").getAsString();
+      tests.add(new UniqueTestInfo(name, definingClass));
     }
-    return testInfoList;
-  }
-
-  public List<MutationAnalysisUnit> createMutationTestUnits(final Collection<ClassName> codeClasses,
-                                                            final String filePath,
-                                                            CoverageDatabase coverage) {
-    final List<MutationAnalysisUnit> tus = new ArrayList<>();
-    try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filePath);
-         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-      JsonElement jsonElement = JsonParser.parseReader(reader);
-      JsonArray mutantArray = jsonElement.getAsJsonArray();
-      List<MutationDetails> mutationDetailsList = new ArrayList<>();
-      for (JsonElement mutantElement : mutantArray) {
-        JsonObject mutant = mutantElement.getAsJsonObject();
-        MutationIdentifier id = parseMutationIdentifier(mutant.getAsJsonObject("id"));
-        String filename = mutant.get("filename").getAsString();
-        String blocks = mutant.get("block").getAsString();
-        int lineNumber = mutant.get("lineNumber").getAsInt();
-        String description = mutant.get("description").getAsString();
-        List<TestInfo> testsInOrder = new ArrayList<>();
-        if (!(coverage instanceof NoCoverage)) {
-          testsInOrder = parseTestsInOrder(mutant.getAsJsonArray("testsInOrder"));
-        }
-        MutationDetails mutationDetails = new MutationDetails(id, filename, description, lineNumber, parseStringToIntegers(blocks));
-        mutationDetails.addTestsInOrder(testsInOrder);
-        mutationDetailsList.add(mutationDetails);
-      }
-      for (final Collection<MutationDetails> md : this.grouper.groupMutations(
-          codeClasses, mutationDetailsList)) {
-        tus.add(makeUnanalysedUnit(md));
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    tus.sort(new AnalysisPriorityComparator());
-    return tus;
-  }
-
-  public List<MutationAnalysisUnit> createMutationTestUnits(
-          final Collection<ClassName> codeClasses, Random random) {
-    final List<MutationAnalysisUnit> tus = new ArrayList<>();
-
-    final List<MutationDetails> mutations = codeClasses.stream()
-        .flatMap(c -> mutationSource.createMutations(c).stream())
-        .collect(Collectors.toList());
-
-    mutations.sort(comparing(MutationDetails::getId));
-
-    List<MutationResult> analysisUnits = this.analyser.analyse(mutations);
-
-    Collection<MutationDetails> needProcessing = filterAlreadyAnalysedMutations(mutations, analysisUnits);
-
-    List<MutationResult> analysedMutations = analysisUnits.stream()
-            .filter(r -> r.getStatus() != DetectionStatus.NOT_STARTED)
-            .collect(Collectors.toList());
-
-    if (!analysedMutations.isEmpty()) {
-      tus.add(makePreAnalysedUnit(analysedMutations));
-    }
-
-    if (!needProcessing.isEmpty()) {
-      for (final Collection<MutationDetails> ms : this.grouper.groupMutations(
-              codeClasses, needProcessing)) {
-        ArrayList<MutationDetails> mutationDetails = new ArrayList<>(ms);
-        Collections.shuffle(mutationDetails, random);
-        tus.add(makeUnanalysedUnit(mutationDetails));
-      }
-    }
-    tus.sort(new AnalysisPriorityComparator());
-    return tus;
+    return tests;
   }
 
   private static Collection<MutationDetails> filterAlreadyAnalysedMutations(List<MutationDetails> mutations, Collection<MutationResult> analysedMutations) {
@@ -234,5 +285,4 @@ public class MutationTestBuilder {
       final Collection<MutationDetails> needAnalysis) {
     return new MutationTestUnit(needAnalysis, this.workerFactory);
   }
-
 }

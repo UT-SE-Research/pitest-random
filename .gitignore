@@ -14,5 +14,6 @@ dependency-reduced-pom.xml
 .flattened-pom.xml
 */bin
 .DS_Store
-commons-codec-master/
+commons-codec/
 delight-nashorn-sandbox/
+

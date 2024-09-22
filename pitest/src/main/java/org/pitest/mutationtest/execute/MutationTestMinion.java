@@ -76,17 +76,14 @@ public class MutationTestMinion {
     try {
 
       long t0 = System.nanoTime();
-
       final MinionArguments paramsFromParent = this.dis
           .read(MinionArguments.class);
-
       configureVerbosity(paramsFromParent);
 
       final ClassLoader loader = IsolationUtils.getContextClassLoader();
 
       final ClassByteArraySource byteSource = new CachingByteArraySource(new ClassloaderByteArraySource(
           loader), CACHE_SIZE);
-
       final HotSwap hotswap = new HotSwap();
 
       final MutationEngine engine = createEngine(paramsFromParent.engine, paramsFromParent.engineArgs);
@@ -95,10 +92,8 @@ public class MutationTestMinion {
 
       final MutationTestWorker worker = new MutationTestWorker(hotswap,
           engine.createMutator(byteSource), loader, reset, paramsFromParent.fullMutationMatrix, paramsFromParent.randomGroup);
-
       final List<TestUnit> tests = findTestsForTestClasses(loader,
           paramsFromParent.testClasses, createTestPlugin(paramsFromParent.pitConfig));
-
 
       worker.run(paramsFromParent.mutations, this.reporter,
           new TimeOutDecoratedTestSource(paramsFromParent.timeoutStrategy,
