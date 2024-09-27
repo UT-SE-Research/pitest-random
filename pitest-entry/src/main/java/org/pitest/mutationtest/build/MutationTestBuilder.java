@@ -211,7 +211,7 @@ public class MutationTestBuilder {
       }
     }
 
-    tus.sort(new AnalysisPriorityComparator());
+    // tus.sort(new AnalysisPriorityComparator());
     return tus;
   }
 
