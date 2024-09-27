@@ -192,8 +192,6 @@ public class MutationTestBuilder {
         }
       }
     }
-    mutations.sort(comparing(MutationDetails::getId));
-
     List<MutationResult> analysisUnits = this.analyser.analyse(mutations);
 
     Collection<MutationDetails> needProcessing = filterAlreadyAnalysedMutations(mutations, analysisUnits);
