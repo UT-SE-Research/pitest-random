@@ -163,6 +163,12 @@ public final class MutationDetails implements Serializable {
     return this.testsInOrder;
   }
 
+  public void controlTestsInOrder(final Collection<TestInfo> testsInOrder) {
+    this.testsInOrder.clear();
+    this.testsInOrder.addAll(testsInOrder);
+    this.testsInOrder.trimToSize();
+  }
+
   /**
    * Adds tests to the list of covering tests
    *

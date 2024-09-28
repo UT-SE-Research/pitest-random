@@ -183,15 +183,19 @@ public class MutationTestBuilder {
                 if (uti.name.equals(ti.getName())
                     && uti.definingClass.equals(ti.getDefiningClass())) {
                   testInfos.add(ti);
+                  break;
                 }
               }
             }
-            md.addTestsInOrder(testInfos);
+            md.controlTestsInOrder(testInfos);
           }
           mutations.add(md);
+          break;
         }
       }
     }
+//    mutations.sort(comparing(MutationDetails::getId));
+
     List<MutationResult> analysisUnits = this.analyser.analyse(mutations);
 
     Collection<MutationDetails> needProcessing = filterAlreadyAnalysedMutations(mutations, analysisUnits);
