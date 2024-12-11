@@ -248,8 +248,9 @@ public class MojoToReportOptionsConverter {
     data.setOutputEncoding(this.mojo.getOutputEncoding());
     data.setRandomMutant(this.mojo.isRandomMutant());
     data.setRandomTest(this.mojo.isRandomTest());
-    data.setRandomGroup(this.mojo.isRandomGroup());
     data.setRandomSeed(this.mojo.getRandomSeed());
+    data.setRandomGroup(this.mojo.isRandomGroup());
+    data.setNumberOfGroups(this.mojo.getNumberOfGroups());
     data.setReadFromFile(this.mojo.isReadFromFile());
     data.setFilePath(this.mojo.getFilePath());
 
