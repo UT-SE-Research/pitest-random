@@ -160,6 +160,8 @@ public class ReportOptions {
 
   private boolean randomGroup = false;
 
+  private int numberOfGroups = 0;
+
   private final Random pitestRandom = new Random();
 
   private boolean readFromFile = false;
@@ -753,6 +755,10 @@ public class ReportOptions {
     this.randomGroup = randomGroup;
   }
 
+  public void setNumberOfGroups(int numberOfGroups) {
+    this.numberOfGroups = numberOfGroups;
+  }
+
   public void setRandomSeed(long randomSeed) {
     if (randomSeed != -1L) {
       this.pitestRandom.setSeed(randomSeed);
@@ -776,6 +782,10 @@ public class ReportOptions {
 
   public boolean isRandomGroup() {
     return randomGroup;
+  }
+
+  public int getNumberOfGroups() {
+    return numberOfGroups;
   }
 
   public Random getPitestRandom() {

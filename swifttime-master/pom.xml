@@ -50,7 +50,7 @@
 <!--                    <randomSeed>99999</randomSeed>-->
 <!--                    <skipFailingTests>true</skipFailingTests>-->
                     <readFromFile>true</readFromFile>
-                    <filePath>""</filePath>
+                    <filePath>null</filePath>
                     <outputFormats>
                         <outputFormat>XML</outputFormat>
                     </outputFormats>

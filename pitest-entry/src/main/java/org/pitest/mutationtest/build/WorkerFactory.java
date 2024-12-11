@@ -51,7 +51,6 @@ public class WorkerFactory {
     this.config = mutationConfig;
     this.args = args;
     this.randomGroup = randomGroup;
-
   }
 
   public MutationTestProcess createWorker(
@@ -74,8 +73,8 @@ public class WorkerFactory {
   private Consumer<String> captureStdOutIfVerbose() {
     if (this.verbosity.showMinionOutput()) {
       return Prelude.noSideEffect(String.class);
-      // don't know why there will be many useless stdout when show minion outpus
-//      return printlnWith("stdout ");
+      // don't know why there will be much useless stdout when show minion outpus
+      //      return printlnWith("stdout ");
     } else {
       return Prelude.noSideEffect(String.class);
     }

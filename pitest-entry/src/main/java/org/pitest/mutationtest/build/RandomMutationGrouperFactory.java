@@ -12,6 +12,6 @@ public class RandomMutationGrouperFactory implements MutationGrouperFactory {
 
     @Override
     public MutationGrouper makeFactory(final CodeSource codeSource, final ReportOptions data) {
-        return new RandomGrouper(data.getMutationUnitSize(), data.getPitestRandom());
+        return new RandomGrouper(data.getNumberOfGroups(), data.getPitestRandom());
     }
 }

@@ -425,6 +425,9 @@ public class AbstractPitMojo extends AbstractMojo {
   @Parameter(property = "randomGroup", defaultValue = "false")
   private boolean randomGroup;
 
+  @Parameter(property = "numberOfGroups", defaultValue = "0")
+  private int numberOfGroups;
+
   @Parameter(property = "readFromFile", defaultValue = "false")
   private boolean readFromFile;
 
@@ -821,6 +824,10 @@ public class AbstractPitMojo extends AbstractMojo {
 
   public boolean isRandomGroup() {
     return randomGroup;
+  }
+
+  public int getNumberOfGroups() {
+    return numberOfGroups;
   }
 
   public boolean isReadFromFile() {
