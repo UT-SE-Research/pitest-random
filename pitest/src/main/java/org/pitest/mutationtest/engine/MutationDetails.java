@@ -40,9 +40,12 @@ public final class MutationDetails implements Serializable {
   private final int                 lineNumber;
   private final String              description;
   private final ArrayList<TestInfo> testsInOrder = new ArrayList<>();
+  private int                       groupNumber;
+  private int                       executionSequenceNumber;
+
 
   public MutationDetails(final MutationIdentifier id, final String filename,
-      final String description, final int lineNumber, final int block) {
+                         final String description, final int lineNumber, final int block) {
     this(id, filename, description, lineNumber, singletonList(block));
   }
 
@@ -53,6 +56,22 @@ public final class MutationDetails implements Serializable {
     this.filename = defaultFilenameIfNotSupplied(filename);
     this.lineNumber = lineNumber;
     this.blocks = blocks;
+  }
+
+  public int getGroupNumber() {
+    return groupNumber;
+  }
+
+  public void setGroupNumber(int groupNumber) {
+    this.groupNumber = groupNumber;
+  }
+
+  public int getExecutionSequenceNumber() {
+    return executionSequenceNumber;
+  }
+
+  public void setExecutionSequenceNumber(int executionSequenceNumber) {
+    this.executionSequenceNumber = executionSequenceNumber;
   }
 
   @Override
