@@ -376,7 +376,7 @@ public class MutationCoverage {
     if (data.isReadFromFile()) {
       LOG.info("Load Mutants from Json File");
       return builder.createMutationTestUnits(this.code.getCodeUnderTestNames(),
-          coverageData, data.getFilePath());
+          coverageData, data.getFilePath(), data.isRandomGroup());
     }
     if (data.getVerbosity() == Verbosity.RANDOM_VERBOSE) {
       if (data.isRandomMutant()) {

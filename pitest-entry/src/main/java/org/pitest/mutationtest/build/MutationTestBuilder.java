@@ -147,7 +147,9 @@ public class MutationTestBuilder {
   }
 
   public List<MutationAnalysisUnit> createMutationTestUnits(
-      final Collection<ClassName> codeClasses, CoverageDatabase coverageData, String filePath) {
+      final Collection<ClassName> codeClasses,
+      CoverageDatabase coverageData,
+      String filePath, boolean randomGroup) {
     final List<MutationAnalysisUnit> tus = new ArrayList<>();
 
     final List<MutationDetails> rootMutations = codeClasses.stream()
@@ -166,8 +168,10 @@ public class MutationTestBuilder {
         JsonObject mutant = mutantElement.getAsJsonObject();
         MutationIdentifier id = parseMutationIdentifier(mutant.getAsJsonObject("id"));
         decidedIds.add(id);
-        groupNumbers.add(mutant.get("groupId").getAsInt());
-        executionSequenceNumbers.add(mutant.get("executionSeq").getAsInt());
+        if (randomGroup) {
+          groupNumbers.add(mutant.get("groupId").getAsInt());
+          executionSequenceNumbers.add(mutant.get("executionSeq").getAsInt());
+        }
         if (!(coverageData instanceof NoCoverage)) {
           decidedTests.add(parseTestsInOrder(mutant.getAsJsonArray("testsInOrder")));
         }
@@ -193,8 +197,10 @@ public class MutationTestBuilder {
             }
             md.controlTestsInOrder(testInfos);
           }
-          md.setGroupNumber(groupNumbers.get(i));
-          md.setExecutionSequenceNumber(executionSequenceNumbers.get(i));
+          if (randomGroup) {
+            md.setGroupNumber(groupNumbers.get(i));
+            md.setExecutionSequenceNumber(executionSequenceNumbers.get(i));
+          }
           mutations.add(md);
           break;
         }
