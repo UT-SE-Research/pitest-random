@@ -41,6 +41,7 @@ public final class MutationDetails implements Serializable {
   private final String              description;
   private final ArrayList<TestInfo> testsInOrder = new ArrayList<>();
   private int                       groupNumber;
+  private int                       clazzCount;
   private int                       executionSequenceNumber;
 
 
@@ -64,6 +65,14 @@ public final class MutationDetails implements Serializable {
 
   public void setGroupNumber(int groupNumber) {
     this.groupNumber = groupNumber;
+  }
+
+  public int getClassCount() {
+    return clazzCount;
+  }
+
+  public void setClassCount(int clazzCount) {
+    this.clazzCount = clazzCount;
   }
 
   public int getExecutionSequenceNumber() {

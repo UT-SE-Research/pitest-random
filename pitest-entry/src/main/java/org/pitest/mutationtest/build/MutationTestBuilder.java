@@ -158,6 +158,7 @@ public class MutationTestBuilder {
 
     List<MutationIdentifier> decidedIds = new ArrayList<>();
     List<Integer> groupNumbers = new ArrayList<>();
+    List<Integer> classCounts = new ArrayList<>();
     List<Integer> executionSequenceNumbers = new ArrayList<>();
     List<List<UniqueTestInfo>> decidedTests = new ArrayList<>();
     try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(filePath);
@@ -170,6 +171,7 @@ public class MutationTestBuilder {
         decidedIds.add(id);
         if (randomGroup) {
           groupNumbers.add(mutant.get("groupId").getAsInt());
+          classCounts.add(mutant.get("clazzId").getAsInt());
           executionSequenceNumbers.add(mutant.get("executionSeq").getAsInt());
         }
         if (!(coverageData instanceof NoCoverage)) {
@@ -199,6 +201,7 @@ public class MutationTestBuilder {
           }
           if (randomGroup) {
             md.setGroupNumber(groupNumbers.get(i));
+            md.setClassCount(classCounts.get(i));
             md.setExecutionSequenceNumber(executionSequenceNumbers.get(i));
           }
           mutations.add(md);

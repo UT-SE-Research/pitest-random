@@ -33,11 +33,14 @@ public class RandomGrouper implements MutationGrouper {
         }
 
         for (Collection<MutationDetails> classMutation : classMutations) {
-            List<MutationDetails> sortedClassMutation = classMutation.stream()
-                .sorted(Comparator.comparingInt(MutationDetails::getExecutionSequenceNumber))
-                .collect(Collectors.toList());
-            int currentIndex = sortedClassMutation.get(0).getGroupNumber();
-            groups.get(currentIndex).addAll(sortedClassMutation);
+            List<MutationDetails> mutationDetailsList = (List<MutationDetails>) classMutation;
+            int currentIndex = mutationDetailsList.get(0).getGroupNumber();
+            groups.get(currentIndex).addAll(mutationDetailsList);
+        }
+
+        for (int i = 0; i < numberOfGroups; i++) {
+            groups.get(i).sort(Comparator.comparingInt(MutationDetails::getClassCount)
+                .thenComparingInt(MutationDetails::getExecutionSequenceNumber));
         }
         return groups;
     }
