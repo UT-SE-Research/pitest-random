@@ -38,7 +38,7 @@ public class RandomGrouper implements MutationGrouper {
         }
 
         for (int i = 0; i < numberOfGroups; i++) {
-            groups.get(i).sort(Comparator.comparingInt(MutationDetails::getClassCount)
+            groups.get(i).sort(Comparator.comparingInt(MutationDetails::getClazzCount)
                 .thenComparingInt(MutationDetails::getExecutionSequenceNumber));
         }
         return groups;

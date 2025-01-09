@@ -67,11 +67,11 @@ public final class MutationDetails implements Serializable {
     this.groupNumber = groupNumber;
   }
 
-  public int getClassCount() {
+  public int getClazzCount() {
     return clazzCount;
   }
 
-  public void setClassCount(int clazzCount) {
+  public void setClazzCount(int clazzCount) {
     this.clazzCount = clazzCount;
   }
 
