@@ -24,6 +24,9 @@ class MethodMutationContext implements MutationContext, InstructionCounter {
       final MethodMutatorFactory factory, final String description) {
     final MutationIdentifier newId = getNextMutationIdentifier(factory);
     registerMutation(newId, description);
+    MutationIdentifier dummyId = new MutationIdentifier(newId.getLocation(), newId.getIndexes(),
+        "org.pitest.mutationtest.engine.gregor.mutators.DummyMutator");
+    registerMutation(dummyId, "Do nothing");
     return newId;
   }
 

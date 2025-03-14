@@ -113,6 +113,10 @@ public class GregorMutater implements Mutater {
         final List<MutationDetails> details = context.getMutationDetails(context
                 .getTargetMutation().get());
 
+        if (details.isEmpty()) {
+            return new Mutant(new MutationDetails(id, "", "", 0, 0), bytes.get());
+        }
+
         return new Mutant(details.get(0), w.toByteArray());
 
     }

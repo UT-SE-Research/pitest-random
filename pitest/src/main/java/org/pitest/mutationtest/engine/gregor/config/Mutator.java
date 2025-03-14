@@ -18,6 +18,7 @@ import org.pitest.help.Help;
 import org.pitest.help.PitHelpError;
 import org.pitest.mutationtest.engine.gregor.MethodMutatorFactory;
 import org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.DummyMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.InvertNegsMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.MathMutator;
@@ -80,7 +81,8 @@ public final class Mutator {
    * Proposed new defaults - replaced the RETURN_VALS mutator with the new more stable set
    */
   public static Collection<MethodMutatorFactory> newDefaults() {
-    return combine(group(InvertNegsMutator.INVERT_NEGS,
+    return combine(group(DummyMutator.DUMMY,
+        InvertNegsMutator.INVERT_NEGS,
         MathMutator.MATH,
         VoidMethodCallMutator.VOID_METHOD_CALLS,
         NegateConditionalsMutator.NEGATE_CONDITIONALS,

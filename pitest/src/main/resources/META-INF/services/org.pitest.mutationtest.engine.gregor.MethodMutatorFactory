@@ -1,3 +1,4 @@
+org.pitest.mutationtest.engine.gregor.mutators.DummyMutator
 org.pitest.mutationtest.engine.gregor.mutators.experimental.ArgumentPropagationMutator
 org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
 org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator

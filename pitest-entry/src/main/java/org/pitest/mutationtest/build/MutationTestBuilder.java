@@ -14,6 +14,8 @@
  */
 package org.pitest.mutationtest.build;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.pitest.classinfo.ClassName;
 import org.pitest.coverage.CoverageDatabase;
 import org.pitest.coverage.NoCoverage;
@@ -156,6 +158,12 @@ public class MutationTestBuilder {
         .flatMap(c -> mutationSource.createMutations(c).stream())
         .collect(Collectors.toList());
 
+    Map<String, Integer> mutationIndexMap = new HashMap<>();
+    for (int i = 0; i < rootMutations.size(); i++) {
+      MutationDetails details = rootMutations.get(i);
+      mutationIndexMap.put(details.getId().toString(), i);
+    }
+
     List<MutationIdentifier> decidedIds = new ArrayList<>();
     List<Integer> groupNumbers = new ArrayList<>();
     List<Integer> clazzCounts = new ArrayList<>();
@@ -184,31 +192,36 @@ public class MutationTestBuilder {
 
     List<MutationDetails> mutations = new ArrayList<>();
     for (int i = 0; i < decidedIds.size(); i++) {
-      for (final MutationDetails md : rootMutations) {
+      MutationDetails curMutation = null;
+
+      // Dummy Mutator works.
+      if (mutationIndexMap.containsKey(decidedIds.get(i).toString())) {
+        curMutation = rootMutations.get(mutationIndexMap.get(decidedIds.get(i).toString()));
+      }
+
+      if (curMutation != null) {
         List<TestInfo> testInfos = new ArrayList<>();
-        if (decidedIds.get(i).equals(md.getId())) {
-          if (!decidedTests.isEmpty()) {
-            for (UniqueTestInfo uti : decidedTests.get(i)) {
-              for (TestInfo ti : md.getTestsInOrder()) {
-                if (uti.name.equals(ti.getName())
-                    && uti.definingClass.equals(ti.getDefiningClass())) {
-                  testInfos.add(ti);
-                  break;
-                }
+        if (!decidedTests.isEmpty()) {
+          for (UniqueTestInfo uti : decidedTests.get(i)) {
+            for (TestInfo ti : curMutation.getTestsInOrder()) {
+              if (uti.name.equals(ti.getName())
+                  && uti.definingClass.equals(ti.getDefiningClass())) {
+                testInfos.add(ti);
+                break;
               }
             }
-            md.controlTestsInOrder(testInfos);
           }
-          if (randomGroup) {
-            md.setGroupNumber(groupNumbers.get(i));
-            md.setClazzCount(clazzCounts.get(i));
-            md.setExecutionSequenceNumber(executionSequenceNumbers.get(i));
-          }
-          mutations.add(md);
-          break;
+          curMutation.controlTestsInOrder(testInfos);
         }
+        if (randomGroup) {
+          curMutation.setGroupNumber(groupNumbers.get(i));
+          curMutation.setClazzCount(clazzCounts.get(i));
+          curMutation.setExecutionSequenceNumber(executionSequenceNumbers.get(i));
+        }
+        mutations.add(curMutation);
       }
     }
+
     List<MutationResult> analysisUnits = this.analyser.analyse(mutations);
 
     Collection<MutationDetails> needProcessing = filterAlreadyAnalysedMutations(mutations, analysisUnits);
