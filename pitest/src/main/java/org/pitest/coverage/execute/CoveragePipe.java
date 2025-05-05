@@ -53,6 +53,13 @@ public class CoveragePipe implements CoverageReceiver {
   }
 
   @Override
+  public synchronized void registerStaticField(final int id, final String fieldName) {
+    this.dos.writeByte(Id.STATIC);
+    this.dos.writeInt(id);
+    this.dos.writeString(fieldName);
+  }
+
+  @Override
   public synchronized void registerProbes(int classId, String methodName,
       String methodDesc, int firstProbe, int lastProbe) {
     this.dos.writeByte(Id.PROBES);

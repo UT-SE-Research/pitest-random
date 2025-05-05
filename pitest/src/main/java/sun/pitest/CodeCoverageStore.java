@@ -20,10 +20,7 @@
 // to still delegate it's loading
 package sun.pitest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -42,6 +39,7 @@ public final class CodeCoverageStore {
 
   private static InvokeReceiver                invokeQueue;
   private static int                           classId           = 0;
+  private static int                           staticFieldId     = 0;
 
   public static final String PROBE_FIELD_NAME                    = "$$pitCoverageProbes";
   public static final String PROBE_LENGTH_FIELD_NAME             = "$$pitCoverageProbeSize";
@@ -53,6 +51,8 @@ public final class CodeCoverageStore {
   // optimisation with other methods of ensuring a happens before not yet
   // investigated
   private static final Map<Integer, boolean[]> CLASS_HITS        = new ConcurrentHashMap<>();
+  private static final Set<Integer> STATIC_PUT_HITS              = ConcurrentHashMap.newKeySet();
+  private static final Set<Integer> STATIC_GET_HITS              = ConcurrentHashMap.newKeySet();
 
   public static void init(final InvokeReceiver invokeQueue) {
     CodeCoverageStore.invokeQueue = invokeQueue;
@@ -92,6 +92,37 @@ public final class CodeCoverageStore {
     final int id = nextId();
     invokeQueue.registerClass(id, className);
     return id;
+  }
+
+  public static int registerStaticField(final String fieldName) {
+    final int id = nextStaticFieldId();
+    invokeQueue.registerStaticField(id, fieldName);
+    return id;
+  }
+
+  private static synchronized int nextStaticFieldId() {
+    return staticFieldId++;
+  }
+
+  public static void recordStaticPut(final int fieldId) {
+    STATIC_PUT_HITS.add(fieldId);
+  }
+
+  public static void recordStaticGet(final int fieldId) {
+    STATIC_GET_HITS.add(fieldId);
+  }
+
+  public static Collection<Integer> getStaticPutHits() {
+    return new ArrayList<>(STATIC_PUT_HITS);
+  }
+
+  public static Collection<Integer> getStaticGetHits() {
+    return new ArrayList<>(STATIC_GET_HITS);
+  }
+
+  public static void resetStaticHits() {
+    STATIC_PUT_HITS.clear();
+    STATIC_GET_HITS.clear();
   }
 
   public static void registerMethod(final int clazz, final String methodName,

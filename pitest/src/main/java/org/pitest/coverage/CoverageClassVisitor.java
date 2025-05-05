@@ -26,6 +26,12 @@ import org.pitest.classinfo.SyntheticMethodFilter;
 import org.pitest.coverage.analysis.CoverageAnalyser;
 import sun.pitest.CodeCoverageStore;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * Instruments a class with probes on each line
  */
@@ -41,6 +47,16 @@ public class CoverageClassVisitor extends MethodFilteringAdapter {
   private String    className;
   private boolean   foundClinit;
   private boolean   isInterface;
+
+  private final Map<String, List<String>> staticAccessMap = new ConcurrentHashMap<>();
+
+  public enum StaticAccessHolder {
+    INSTANCE;
+    private final Map<String,List<String>> map = new ConcurrentHashMap<>();
+    public Map<String,List<String>> getMap() {
+      return map;
+    }
+  }
 
   public CoverageClassVisitor(final int classId, final ClassWriter writer) {
     super(writer, SyntheticMethodFilter.INSTANCE);
@@ -71,9 +87,28 @@ public class CoverageClassVisitor extends MethodFilteringAdapter {
       final String name, final String desc, final String signature,
       final String[] exceptions, final MethodVisitor methodVisitor) {
 
-    return new CoverageAnalyser(this, this.classId, this.probeCount,
+    MethodVisitor coverageAnalyser = new CoverageAnalyser(this, this.classId, this.probeCount,
         methodVisitor, access, name, desc, signature, exceptions);
 
+    final String methodKey = this.className + "." + name;
+    return new MethodVisitor(Opcodes.ASM5, coverageAnalyser) {
+      @Override
+      public void visitFieldInsn(
+              int opcode,
+              String owner,
+              String fieldName,
+              String fieldDesc
+      ) {
+        if (opcode == Opcodes.PUTSTATIC) {
+          String fqField = owner.replace('/', '.') + "." + fieldName;
+          StaticAccessHolder.INSTANCE
+                  .getMap()
+                  .computeIfAbsent(methodKey, k -> Collections.synchronizedList(new ArrayList<>()))
+                  .add(fqField);
+        }
+        super.visitFieldInsn(opcode, owner, fieldName, fieldDesc);
+      }
+    };
   }
 
   @Override

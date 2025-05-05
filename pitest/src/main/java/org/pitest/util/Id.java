@@ -21,4 +21,6 @@ public abstract class Id {
   public static final byte OUTCOME  = 16;
   public static final byte CLAZZ    = 32;
   public static final byte DONE     = 64;
+
+  public static final byte STATIC = 8;
 }

@@ -20,6 +20,7 @@ import java.util.function.Consumer;
 final class Receive implements ReceiveStrategy {
 
   private final Map<Integer, ClassName>     classIdToName = new ConcurrentHashMap<>();
+  private final Map<Integer, ClassName>     staticFieldIdToName = new ConcurrentHashMap<>();
   private final Map<Long, BlockLocation>    probeToBlock  = new ConcurrentHashMap<>();
 
   private final Consumer<CoverageResult> handler;
@@ -35,6 +36,11 @@ final class Receive implements ReceiveStrategy {
       final int id = is.readInt();
       final String name = is.readString();
       this.classIdToName.put(id, ClassName.fromString(name));
+      break;
+    case Id.STATIC:
+      final int fieldId = is.readInt();
+      final String fieldName = is.readString();
+      this.staticFieldIdToName.put(fieldId, ClassName.fromString(fieldName));
       break;
     case Id.PROBES:
       handleProbes(is);
