@@ -101,7 +101,7 @@ public class MutationTestMinion {
 
       this.reporter.done(ExitCode.OK);
       if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
-        LOG.info("RANDOM LOG: Run all " + paramsFromParent.mutations.size() + " mutants in " + NANOSECONDS.toMillis(System.nanoTime() - t0) + " ms");
+        LOG.info("RANDOM LOG: Executed all " + paramsFromParent.mutations.size() + " mutants in " + NANOSECONDS.toMillis(System.nanoTime() - t0) + " ms");
       }
       // rudely kill the vm in case it is kept alive
       // by threads launched by client
