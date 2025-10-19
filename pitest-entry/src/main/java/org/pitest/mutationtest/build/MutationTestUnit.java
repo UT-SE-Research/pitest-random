@@ -29,6 +29,9 @@ import org.pitest.mutationtest.engine.MutationDetails;
 import org.pitest.mutationtest.execute.MutationTestProcess;
 import org.pitest.util.ExitCode;
 import org.pitest.util.Log;
+import org.pitest.util.Verbosity;
+
+import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
 public class MutationTestUnit implements MutationAnalysisUnit {
 
@@ -49,6 +52,10 @@ public class MutationTestUnit implements MutationAnalysisUnit {
 
   @Override
   public MutationMetaData call() throws Exception {
+    long t0 = System.nanoTime();
+    if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
+      LOG.info("RANDOM LOG: Process started at " + t0 + " ns.");
+    }
     final MutationStatusMap mutations = new MutationStatusMap();
 
     mutations.setStatusForMutations(this.availableMutations,
@@ -57,6 +64,12 @@ public class MutationTestUnit implements MutationAnalysisUnit {
     mutations.markUncoveredMutations();
 
     runTestsInSeperateProcess(mutations);
+
+    if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
+      long durTime = NANOSECONDS.toMillis(System.nanoTime() - t0);
+      MutationDetails md = (mutations.allMutations()).iterator().next();
+      LOG.info("RANDOM LOG: Record group " + md.getGroupNumber() + " finished in " + durTime + " ms.");
+    }
 
     return reportResults(mutations);
   }
@@ -123,12 +136,18 @@ public class MutationTestUnit implements MutationAnalysisUnit {
       final DetectionStatus status = DetectionStatus
           .getForErrorExitCode(exitCode);
       LOG.warning("Minion exited abnormally due to " + status);
+      if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
+        LOG.info("RANDOM LOG: Exited due to " + status + " at " + System.nanoTime() + " ns.");
+      }
       LOG.fine("Setting " + unfinishedRuns.size() + " unfinished runs to "
           + status + " state");
       mutations.setStatusForMutations(unfinishedRuns, status);
 
     } else {
       LOG.fine("Minion exited ok");
+      if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
+        LOG.info("RANDOM LOG: Exited OK at " + System.nanoTime() + " ns.");
+      }
     }
 
   }
@@ -136,7 +155,5 @@ public class MutationTestUnit implements MutationAnalysisUnit {
   private static MutationMetaData reportResults(final MutationStatusMap mutationsMap) {
     return new MutationMetaData(mutationsMap.createMutationResults());
   }
-
-
 
 }
