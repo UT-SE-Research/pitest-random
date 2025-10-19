@@ -31,8 +31,6 @@ import org.pitest.util.ExitCode;
 import org.pitest.util.Log;
 import org.pitest.util.Verbosity;
 
-import static java.util.concurrent.TimeUnit.NANOSECONDS;
-
 public class MutationTestUnit implements MutationAnalysisUnit {
 
   private static final Logger               LOG = Log.getLogger();
