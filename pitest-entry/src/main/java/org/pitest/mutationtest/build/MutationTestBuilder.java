@@ -25,7 +25,14 @@ import org.pitest.mutationtest.engine.Location;
 import org.pitest.mutationtest.engine.MutationDetails;
 import org.pitest.mutationtest.engine.MutationIdentifier;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static java.util.Comparator.comparing;
@@ -37,6 +44,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
+import java.util.Arrays;
 
 public class MutationTestBuilder {
 
@@ -175,7 +183,7 @@ public class MutationTestBuilder {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    
+
     Map<MutationIdentifier, MutationDetails> id2Mutation = new HashMap<>(rootMutations.size() * 2);
     for (MutationDetails md : rootMutations) {
       id2Mutation.putIfAbsent(md.getId(), md);
@@ -193,7 +201,6 @@ public class MutationTestBuilder {
         List<UniqueTestInfo> wantTests = decidedTests.get(i);
         if (wantTests != null && !wantTests.isEmpty()) {
           List<TestInfo> testInfos = new ArrayList<>(wantTests.size());
-          // 维持原有匹配逻辑与顺序
           for (UniqueTestInfo uti : wantTests) {
             for (TestInfo ti : md.getTestsInOrder()) {
               if (uti.name.equals(ti.getName())
