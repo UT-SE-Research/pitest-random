@@ -76,6 +76,7 @@ public class MutationTestMinion {
     try {
 
       long t0 = System.nanoTime();
+      LOG.info("Starting Minion");
       final MinionArguments paramsFromParent = this.dis
           .read(MinionArguments.class);
       configureVerbosity(paramsFromParent);

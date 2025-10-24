@@ -63,12 +63,6 @@ public class MutationTestUnit implements MutationAnalysisUnit {
 
     runTestsInSeperateProcess(mutations);
 
-//    if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
-//      long durTime = NANOSECONDS.toMillis(System.nanoTime() - t0);
-//      MutationDetails md = (mutations.allMutations()).iterator().next();
-//      LOG.info("RANDOM LOG: Record group " + md.getGroupNumber() + " finished in " + durTime + " ms.");
-//    }
-
     return reportResults(mutations);
   }
 
