@@ -51,9 +51,8 @@ public class MutationTestUnit implements MutationAnalysisUnit {
   @Override
   public MutationMetaData call() throws Exception {
     long t0 = System.nanoTime();
-    if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
-      LOG.info("RANDOM LOG: Process started at " + t0 + " ns.");
-    }
+    LOG.info("RANDOM LOG: Unit started at " + t0 + " ns.");
+
     final MutationStatusMap mutations = new MutationStatusMap();
 
     mutations.setStatusForMutations(this.availableMutations,
@@ -63,6 +62,7 @@ public class MutationTestUnit implements MutationAnalysisUnit {
 
     runTestsInSeperateProcess(mutations);
 
+    LOG.info("RANDOM LOG: Unit ended at " + System.nanoTime() + " ns.");
     return reportResults(mutations);
   }
 
@@ -74,7 +74,10 @@ public class MutationTestUnit implements MutationAnalysisUnit {
   private void runTestsInSeperateProcess(final MutationStatusMap mutations)
       throws IOException, InterruptedException {
     while (mutations.hasUnrunMutations()) {
+      // Start of a new process
+      LOG.info("RANDOM LOG: Process started at " + System.nanoTime() + " ns.");
       runTestInSeperateProcessForMutationRange(mutations);
+      LOG.info("RANDOM LOG: Process ended at " + System.nanoTime() + " ns.");
     }
   }
 

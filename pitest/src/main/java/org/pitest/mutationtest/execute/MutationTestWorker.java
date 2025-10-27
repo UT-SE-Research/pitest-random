@@ -94,7 +94,9 @@ public class MutationTestWorker {
                 LOG.fine("Running mutation " + mutation);
             }
             final long t0 = System.nanoTime();
+            LOG.info("RANDOM LOG: Mutation started at " + System.nanoTime() + " ns.");
             processMutation(r, testSource, mutation);
+            LOG.info("RANDOM LOG: Mutation ended at " + System.nanoTime() + " ns.");
             if (DEBUG) {
                 LOG.fine("processed mutation in " + NANOSECONDS.toMillis(System.nanoTime() - t0)
                         + " ms.");
@@ -166,12 +168,12 @@ public class MutationTestWorker {
     ) {
         final MutationStatusTestPair mutationDetected;
         if (DEBUG) {
-            LOG.fine("" + relevantTests.size() + " relevant test for "
+            LOG.fine(relevantTests.size() + " relevant test for "
                     + mutatedClass.getDetails().getMethod());
         }
 
         if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
-            LOG.info("RANDOM LOG: start running " + +relevantTests.size() + " relevant test for " + mutationId.toString());
+            LOG.info("RANDOM LOG: start running " + relevantTests.size() + " relevant test for " + mutationId.toString());
         }
 
         final long t = System.nanoTime();
@@ -188,10 +190,8 @@ public class MutationTestWorker {
             reset.resetFor(mutatedClass);
         }
 
-
         final Container c = createNewContainer();
         final long t0 = System.nanoTime();
-
 
         if (this.hotswap.insertClass(mutationId.getClassName(), this.loader,
                 mutatedClass.getBytes())) {

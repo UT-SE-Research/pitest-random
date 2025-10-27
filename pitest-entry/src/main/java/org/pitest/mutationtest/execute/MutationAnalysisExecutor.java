@@ -47,7 +47,9 @@ public class MutationAnalysisExecutor {
         testUnits.size());
 
     for (final MutationAnalysisUnit unit : testUnits) {
+      LOG.info("Executing " + unit + " starting at " + System.nanoTime());
       results.add(this.executor.submit(unit));
+      LOG.info("Executing " + unit + " ending at " + System.nanoTime());
     }
 
     this.executor.shutdown();
