@@ -74,27 +74,54 @@ public class MutationTestMinion {
 
   public void run() {
     try {
-
       long t0 = System.nanoTime();
-      LOG.info("Starting Minion");
-      final MinionArguments paramsFromParent = this.dis
-          .read(MinionArguments.class);
+      LOG.info("RANDOM LOG: t=" + t0 + " ns | step=start_minion");
+
+      final MinionArguments paramsFromParent = this.dis.read(MinionArguments.class);
+      LOG.info("RANDOM LOG: t=" + System.nanoTime() + " ns | step=read_args");
+
       configureVerbosity(paramsFromParent);
+
+      LOG.info("RANDOM LOG: t=" + System.nanoTime() + " ns | step=configure_verbosity");
 
       final ClassLoader loader = IsolationUtils.getContextClassLoader();
 
-      final ClassByteArraySource byteSource = new CachingByteArraySource(new ClassloaderByteArraySource(
-          loader), CACHE_SIZE);
+      LOG.info("RANDOM LOG: t=" + System.nanoTime() + " ns | step=get_context_classloader");
+
+      final ClassByteArraySource byteSource =
+              new CachingByteArraySource(new ClassloaderByteArraySource(loader), CACHE_SIZE);
+
+      LOG.info("RANDOM LOG: t=" + System.nanoTime() + " ns | step=build_byte_source");
+
       final HotSwap hotswap = new HotSwap();
 
-      final MutationEngine engine = createEngine(paramsFromParent.engine, paramsFromParent.engineArgs);
+      LOG.info("RANDOM LOG: t=" + System.nanoTime() + " ns | step=create_hotswap");
+
+      final MutationEngine engine =
+              createEngine(paramsFromParent.engine, paramsFromParent.engineArgs);
+
+      LOG.info("RANDOM LOG: t=" + System.nanoTime() + " ns | step=create_engine");
 
       final ResetEnvironment reset = this.plugins.createReset();
 
-      final MutationTestWorker worker = new MutationTestWorker(hotswap,
-          engine.createMutator(byteSource), loader, reset, paramsFromParent.fullMutationMatrix, paramsFromParent.randomGroup);
-      final List<TestUnit> tests = findTestsForTestClasses(loader,
-          paramsFromParent.testClasses, createTestPlugin(paramsFromParent.pitConfig));
+      LOG.info("RANDOM LOG: t=" + System.nanoTime() + " ns | step=create_reset_env");
+
+      final MutationTestWorker worker = new MutationTestWorker(
+              hotswap,
+              engine.createMutator(byteSource),
+              loader,
+              reset,
+              paramsFromParent.fullMutationMatrix,
+              paramsFromParent.randomGroup);
+
+      LOG.info("RANDOM LOG: t=" + System.nanoTime() + " ns | step=build_worker");
+
+      final List<TestUnit> tests = findTestsForTestClasses(
+              loader,
+              paramsFromParent.testClasses,
+              createTestPlugin(paramsFromParent.pitConfig));
+
+      LOG.info("RANDOM LOG: t=" + System.nanoTime() + " ns | step=find_tests");
 
       worker.run(paramsFromParent.mutations, this.reporter,
           new TimeOutDecoratedTestSource(paramsFromParent.timeoutStrategy,
