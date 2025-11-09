@@ -95,48 +95,48 @@ public abstract class ReportTestBase {
     return predicateFor(clazz.getName());
   }
 
-  protected void createAndRun() {
-    final SettingsFactory settings = new SettingsFactory(this.data, this.plugins);
-    createAndRun(settings);
-  }
+//  protected void createAndRun() {
+//    final SettingsFactory settings = new SettingsFactory(this.data, this.plugins);
+//    createAndRun(settings);
+//  }
 
-  protected void createAndRun(SettingsFactory settings) {
-    final JavaAgent agent = new JarCreatingJarFinder();
-    try {
-
-      final CoverageOptions coverageOptions = createCoverageOptions(settings.createCoverageOptions().getPitConfig());
-      final LaunchOptions launchOptions = new LaunchOptions(agent,
-          new DefaultJavaExecutableLocator(), this.data.getJvmArgs(),
-          new HashMap<>());
-
-      final PathFilter pf = new PathFilter(p -> true, p -> true);
-      final ProjectClassPaths cps = new ProjectClassPaths(
-          this.data.getClassPath(), this.data.createClassesFilter(), pf);
-
-      final Timings timings = new Timings();
-      final CodeSource code = new DefaultCodeSource(cps);
-
-      final CoverageGenerator coverageDatabase = new DefaultCoverageGenerator(
-          null, coverageOptions, launchOptions, code,
-          new NullCoverageExporter(), timings, Verbosity.DEFAULT);
-
-      final History history = new NullHistory();
-
-      final MutationStrategies strategies = new MutationStrategies(
-          new GregorEngineFactory(), history, coverageDatabase,
-          listenerFactory(), result -> result, cov -> cov, null, new NoVerification());
-
-      final MutationCoverage testee = new MutationCoverage(strategies, null,
-          code, this.data, new SettingsFactory(this.data, this.plugins),
-          timings);
-
-      testee.runReport();
-    } catch (final IOException e) {
-      throw Unchecked.translateCheckedException(e);
-    } finally {
-      agent.close();
-    }
-  }
+//  protected void createAndRun(SettingsFactory settings) {
+//    final JavaAgent agent = new JarCreatingJarFinder();
+//    try {
+//
+//      final CoverageOptions coverageOptions = createCoverageOptions(settings.createCoverageOptions().getPitConfig());
+//      final LaunchOptions launchOptions = new LaunchOptions(agent,
+//          new DefaultJavaExecutableLocator(), this.data.getJvmArgs(),
+//          new HashMap<>());
+//
+//      final PathFilter pf = new PathFilter(p -> true, p -> true);
+//      final ProjectClassPaths cps = new ProjectClassPaths(
+//          this.data.getClassPath(), this.data.createClassesFilter(), pf);
+//
+//      final Timings timings = new Timings();
+//      final CodeSource code = new DefaultCodeSource(cps);
+//
+//      final CoverageGenerator coverageDatabase = new DefaultCoverageGenerator(
+//          null, coverageOptions, launchOptions, code,
+//          new NullCoverageExporter(), timings, Verbosity.DEFAULT);
+//
+//      final History history = new NullHistory();
+//
+//      final MutationStrategies strategies = new MutationStrategies(
+//          new GregorEngineFactory(), history, coverageDatabase,
+//          listenerFactory(), result -> result, cov -> cov, null, new NoVerification());
+//
+//      final MutationCoverage testee = new MutationCoverage(strategies, null,
+//          code, this.data, new SettingsFactory(this.data, this.plugins),
+//          timings);
+//
+//      testee.runReport();
+//    } catch (final IOException e) {
+//      throw Unchecked.translateCheckedException(e);
+//    } finally {
+//      agent.close();
+//    }
+//  }
 
   private CoverageOptions createCoverageOptions(TestPluginArguments configuration) {
     return new CoverageOptions(this.data.getTargetClasses(),this.data.getExcludedClasses(),

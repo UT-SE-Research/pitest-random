@@ -10,6 +10,7 @@ import org.pitest.coverage.execute.DefaultCoverageGenerator;
 import org.pitest.mutationtest.History;
 import org.pitest.mutationtest.HistoryFactory;
 import org.pitest.mutationtest.HistoryParams;
+import org.pitest.mutationtest.execute.DescriptorCachingTestUnitProvider;
 import org.pitest.mutationtest.incremental.HistoryResultInterceptor;
 import org.pitest.mutationtest.MutationResultListenerFactory;
 import org.pitest.mutationtest.config.PluginServices;
@@ -34,7 +35,11 @@ import org.pitest.util.Timings;
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -94,6 +99,8 @@ public class EntryPoint {
 
     final ClassPath cp = data.getClassPath();
 
+    final ClassLoader projectClassLoader = createProjectClassLoader(cp);
+
     // workaround for apparent java 1.5 JVM bug . . . might not play nicely
     // with distributed testing
     final JavaAgent jac = new JarCreatingJarFinder(
@@ -131,7 +138,7 @@ public class EntryPoint {
             reportOutput, settings.createVerifier().create(new BuildVerifierArguments(code, data)));
 
     final MutationCoverage report = new MutationCoverage(strategies, baseDir,
-        code, data, settings, timings);
+        code, data, settings, timings, projectClassLoader);
 
     try {
       return AnalysisResult.success(report.runReport());
@@ -144,6 +151,31 @@ public class EntryPoint {
     }
 
   }
+
+  private ClassLoader createProjectClassLoader(ClassPath cp) {
+    String localCp = cp.getLocalClassPath();
+
+    String[] elements = localCp.split(File.pathSeparator);
+
+    URL[] urls = Arrays.stream(elements)
+            .map(String::trim)
+            .filter(s -> !s.isEmpty())
+            .filter(path -> !path.contains("junit-jupiter")
+                    && !path.contains("junit-platform"))
+            .map(File::new)
+            .map(f -> {
+              try {
+                return f.toURI().toURL();
+              } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+              }
+            })
+            .toArray(URL[]::new);
+
+    ClassLoader parent = DescriptorCachingTestUnitProvider.class.getClassLoader();
+    return new URLClassLoader(urls, parent);
+  }
+
 
   private List<String> createJvmArgs(ReportOptions data) {
     List<String> args = new ArrayList<>(data.getJvmArgs());

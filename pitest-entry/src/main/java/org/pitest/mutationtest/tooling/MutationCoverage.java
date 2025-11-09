@@ -89,16 +89,22 @@ public class MutationCoverage {
   private final CodeSource         code;
   private final File               baseDir;
   private final SettingsFactory    settings;
+  private final ClassLoader        projectClassLoader;
 
-  public MutationCoverage(final MutationStrategies strategies,
-      final File baseDir, final CodeSource code, final ReportOptions data,
-      final SettingsFactory settings, final Timings timings) {
+  public MutationCoverage(MutationStrategies strategies,
+                          File baseDir,
+                          CodeSource code,
+                          ReportOptions data,
+                          SettingsFactory settings,
+                          Timings timings,
+                          ClassLoader projectClassLoader) {
     this.strategies = strategies;
     this.data = data;
     this.settings = settings;
     this.timings = timings;
     this.code = code;
     this.baseDir = baseDir;
+    this.projectClassLoader = projectClassLoader;
   }
 
   public CombinedStatistics runReport() throws IOException {
@@ -368,7 +374,7 @@ public class MutationCoverage {
         .getConfiguration(), mutationConfig, args,
         new PercentAndConstantTimeoutStrategy(this.data.getTimeoutFactor(),
             this.data.getTimeoutConstant()), this.data.getVerbosity(), this.data.isFullMutationMatrix(),
-            this.data.getClassPath().getLocalClassPath(), this.data.isRandomGroup());
+            this.data.getClassPath().getLocalClassPath(), this.data.isRandomGroup(), this.projectClassLoader);
 
     final MutationGrouper grouper = this.settings.getMutationGrouper().makeFactory(this.code, this.data);
     final MutationTestBuilder builder = new MutationTestBuilder(wf, history,

@@ -32,4 +32,8 @@ public interface Configuration {
 
   Optional<PitHelpError> verifyEnvironment();
 
+  default Optional<TestUnitDescriptorFactory> testUnitDescriptorFactory() {
+    return Optional.empty();
+  }
+
 }

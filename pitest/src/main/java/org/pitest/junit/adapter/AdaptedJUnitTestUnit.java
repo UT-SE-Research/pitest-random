@@ -122,4 +122,12 @@ public class AdaptedJUnitTestUnit extends AbstractTestUnit {
         + this.filter + "]";
   }
 
+  public Class<?> getTestClass() {
+    return this.clazz;
+  }
+
+  public Optional<Filter> getFilter() {
+    return this.filter;
+  }
+
 }

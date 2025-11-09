@@ -3,6 +3,7 @@ package org.pitest.mutationtest.config;
 import org.pitest.help.PitHelpError;
 import org.pitest.testapi.Configuration;
 import org.pitest.testapi.TestSuiteFinder;
+import org.pitest.testapi.TestUnitDescriptorFactory;
 import org.pitest.testapi.TestUnitFinder;
 
 import java.util.Comparator;
@@ -68,4 +69,14 @@ class PrioritisingTestConfiguration implements Configuration {
                 .collect(Collectors.toList());
         return new PrioritisingTestSuiteFinder(finders);
     }
+
+    @Override
+    public Optional<TestUnitDescriptorFactory> testUnitDescriptorFactory() {
+        return children.stream()
+                .map(Configuration::testUnitDescriptorFactory) // Stream<Optional<TestUnitDescriptorFactory>>
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .findFirst();
+    }
+
 }

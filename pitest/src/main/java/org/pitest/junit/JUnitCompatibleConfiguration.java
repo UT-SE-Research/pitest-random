@@ -22,10 +22,12 @@ import java.util.Objects;
 import java.util.Optional;
 import org.pitest.help.Help;
 import org.pitest.help.PitHelpError;
+import org.pitest.junit.adapter.JUnit4TestUnitDescriptorFactory;
 import org.pitest.testapi.Configuration;
 import org.pitest.testapi.TestGroupConfig;
 import org.pitest.testapi.TestSuiteFinder;
 import org.pitest.testapi.TestUnitFinder;
+import org.pitest.testapi.TestUnitDescriptorFactory;
 
 public class JUnitCompatibleConfiguration implements Configuration {
 
@@ -84,6 +86,11 @@ public class JUnitCompatibleConfiguration implements Configuration {
     } catch (final IllegalArgumentException e) {
       return true;
     }
+  }
+
+  @Override
+  public Optional<TestUnitDescriptorFactory> testUnitDescriptorFactory() {
+    return Optional.of(new JUnit4TestUnitDescriptorFactory());
   }
 
 }

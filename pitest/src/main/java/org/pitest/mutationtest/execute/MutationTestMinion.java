@@ -32,6 +32,8 @@ import org.pitest.mutationtest.mocksupport.JavassistInputStreamInterceptorAdapat
 import org.pitest.mutationtest.mocksupport.JavassistInterceptor;
 import org.pitest.testapi.Configuration;
 import org.pitest.testapi.TestUnit;
+import org.pitest.testapi.TestUnitDescriptor;
+import org.pitest.testapi.TestUnitDescriptorFactory;
 import org.pitest.testapi.execute.FindTestUnits;
 import org.pitest.util.ExitCode;
 import org.pitest.util.Glob;
@@ -45,6 +47,7 @@ import javax.management.openmbean.CompositeData;
 import java.io.IOException;
 import java.lang.management.MemoryNotificationInfo;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
@@ -70,6 +73,19 @@ public class MutationTestMinion {
     this.dis = dis;
     this.reporter = reporter;
     this.plugins = plugins;
+  }
+
+  private static List<TestUnit> buildTestsFromDescriptors(
+          TestUnitDescriptorFactory factory,
+          List<TestUnitDescriptor> descriptorList,
+          ClassLoader loader,
+          Configuration config) {
+    List<TestUnit> result = new ArrayList<>(descriptorList.size());
+
+    for (TestUnitDescriptor d : descriptorList) {
+      result.add(factory.create(d, loader, config));
+    }
+    return result;
   }
 
   public void run() {
@@ -116,10 +132,28 @@ public class MutationTestMinion {
 
       LOG.info("RANDOM LOG: t=" + System.nanoTime() + " ns | step=build_worker");
 
-      final List<TestUnit> tests = findTestsForTestClasses(
-              loader,
-              paramsFromParent.testClasses,
-              createTestPlugin(paramsFromParent.pitConfig));
+      final Configuration testConfig = createTestPlugin(paramsFromParent.pitConfig);
+      final List<TestUnit> tests;
+
+      if (paramsFromParent.testDescriptors != null
+              && !paramsFromParent.testDescriptors.isEmpty()
+              && testConfig.testUnitDescriptorFactory().isPresent()) {
+
+        LOG.info("RANDOM LOG: building tests from descriptors, size="
+                + paramsFromParent.testDescriptors.size());
+
+        tests = buildTestsFromDescriptors(
+                testConfig.testUnitDescriptorFactory().get(),
+                paramsFromParent.testDescriptors,
+                loader,
+                testConfig);
+      } else {
+        LOG.info("RANDOM LOG: no descriptors available, falling back to findTestsForTestClasses");
+        tests = findTestsForTestClasses(
+                loader,
+                paramsFromParent.testClasses,
+                testConfig);
+      }
 
       LOG.info("RANDOM LOG: t=" + System.nanoTime() + " ns | step=find_tests");
 

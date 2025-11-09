@@ -16,12 +16,15 @@ package org.pitest.mutationtest.execute;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import org.pitest.classinfo.ClassName;
 import org.pitest.mutationtest.EngineArguments;
 import org.pitest.mutationtest.TimeoutLengthStrategy;
 import org.pitest.mutationtest.config.TestPluginArguments;
 import org.pitest.mutationtest.engine.MutationDetails;
+import org.pitest.testapi.TestUnitDescriptor;
 import org.pitest.util.Verbosity;
 
 public class MinionArguments implements Serializable {
@@ -39,10 +42,19 @@ public class MinionArguments implements Serializable {
 
   final boolean                     randomGroup;
 
-  public MinionArguments(final Collection<MutationDetails> mutations,
-      final Collection<ClassName> tests, final String engine, final EngineArguments engineArgs,
-      final TimeoutLengthStrategy timeoutStrategy, final Verbosity verbosity, final boolean fullMutationMatrix,
-      final TestPluginArguments pitConfig, final boolean randomGroup) {
+  public final List<TestUnitDescriptor> testDescriptors;
+
+  public MinionArguments(
+          final Collection<MutationDetails> mutations,
+          final Collection<ClassName> tests,
+          final String engine,
+          final EngineArguments engineArgs,
+          final TimeoutLengthStrategy timeoutStrategy,
+          final Verbosity verbosity,
+          final boolean fullMutationMatrix,
+          final TestPluginArguments pitConfig,
+          final boolean randomGroup,
+          final List<TestUnitDescriptor> testDescriptors) {
     this.mutations = mutations;
     this.testClasses = tests;
     this.engine = engine;
@@ -52,6 +64,25 @@ public class MinionArguments implements Serializable {
     this.fullMutationMatrix = fullMutationMatrix;
     this.pitConfig = pitConfig;
     this.randomGroup = randomGroup;
+    this.testDescriptors = testDescriptors;
+  }
+
+  public MinionArguments(
+          final Collection<MutationDetails> mutations,
+          final Collection<ClassName> tests,
+          final String engine,
+          final EngineArguments engineArgs,
+          final TimeoutLengthStrategy timeoutStrategy,
+          final Verbosity verbosity,
+          final boolean fullMutationMatrix,
+          final TestPluginArguments pitConfig,
+          final boolean randomGroup) {
+
+    this(
+            mutations, tests, engine, engineArgs,
+            timeoutStrategy, verbosity, fullMutationMatrix,
+            pitConfig, randomGroup, Collections.emptyList()
+    );
   }
 
   public Verbosity verbosity() {
