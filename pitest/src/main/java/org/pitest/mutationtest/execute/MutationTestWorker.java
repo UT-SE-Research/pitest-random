@@ -34,7 +34,6 @@ import org.pitest.testapi.execute.Pitest;
 import org.pitest.testapi.execute.containers.ConcreteResultCollector;
 import org.pitest.testapi.execute.containers.UnContainer;
 import org.pitest.testapi.execute.MultipleTestGroup;
-import org.pitest.testapi.execute.NamedTestUnit;
 import org.pitest.util.Log;
 import org.pitest.util.Verbosity;
 
