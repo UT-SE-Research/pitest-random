@@ -132,15 +132,17 @@ public class MutationTestWorker {
             LOG.fine("mutating method " + mutatedClass.getDetails().getMethod());
         }
 
-        final List<TestInfo> testsInOrder = mutationDetails.getTestsInOrder();
-        final List<TestUnit> rawTests = testSource.translateTests(testsInOrder);
-        final List<TestUnit> relevantTests = new ArrayList<>(rawTests.size());
+        final List<TestUnit> relevantTests = testSource.translateTests(mutationDetails.getTestsInOrder());
 
-        for (int i = 0; i < rawTests.size(); i++) {
-            TestUnit tu = rawTests.get(i);
-            String displayName = getDisplayName(testsInOrder, i);
-            relevantTests.add(new NamedTestUnit(tu, displayName));
-        }
+//        final List<TestInfo> testsInOrder = mutationDetails.getTestsInOrder();
+//        final List<TestUnit> rawTests = testSource.translateTests(testsInOrder);
+//        final List<TestUnit> relevantTests = new ArrayList<>(rawTests.size());
+//
+//        for (int i = 0; i < rawTests.size(); i++) {
+//            TestUnit tu = rawTests.get(i);
+//            String displayName = getDisplayName(testsInOrder, i);
+//            relevantTests.add(new NamedTestUnit(tu, displayName));
+//        }
 
         r.describe(mutationId);
         final MutationStatusTestPair mutationDetected;
