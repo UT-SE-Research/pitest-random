@@ -14,7 +14,7 @@
 
 	<build>
 		<plugins>
-		    <!-- include ASM in the jar, not relocated as will never share classpath with dependencies -->
+			<!-- include ASM in the jar, not relocated as will never share classpath with dependencies -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
@@ -116,7 +116,7 @@
 			<artifactId>pitest</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<!-- asm in main pitest project is shaded. Easiest to depend on
 		own unshaded copy for main process analysis purposes  -->
 		<dependency>
@@ -155,7 +155,7 @@
 			<version>1.1</version>
 			<scope>test</scope>
 		</dependency>
-	  
+
 		<!-- to verify compatibility -->
 		<dependency>
 			<groupId>org.easymock</groupId>
@@ -176,7 +176,7 @@
 			<version>${hamcrest.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 	</dependencies>
 
 </project>

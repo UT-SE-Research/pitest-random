@@ -16,4 +16,8 @@ public final class JUnit4TestUnitDescriptor implements TestUnitDescriptor {
         return className;
     }
 
+    @Override
+    public String toString() {
+        return "JUnit4TestUnitDescriptor[" + className + "]";
+    }
 }

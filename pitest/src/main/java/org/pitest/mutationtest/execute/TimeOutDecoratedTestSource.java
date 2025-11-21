@@ -19,18 +19,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.pitest.coverage.TestInfo;
 import org.pitest.mutationtest.TimeoutLengthStrategy;
 import org.pitest.testapi.TestUnit;
+import org.pitest.util.Log;
 
 public class TimeOutDecoratedTestSource {
 
   private final Map<String, TestUnit> allTests = new HashMap<>();
   private final TimeoutLengthStrategy timeoutStrategy;
   private final Reporter              r;
+
+  private static final Logger LOG = Log.getLogger();
 
   public TimeOutDecoratedTestSource(
       final TimeoutLengthStrategy timeoutStrategy,
@@ -52,17 +56,43 @@ public class TimeOutDecoratedTestSource {
 
   private Function<TestInfo, Stream<TestUnit>> testToTestUnit() {
     return a -> {
-      final TestUnit tu = TimeOutDecoratedTestSource.this.allTests.get(a
-          .getName());
-      if (tu != null) {
-        return Stream
-            .of(new MutationTimeoutDecorator(tu,
-                new TimeOutSystemExitSideEffect(
-                    TimeOutDecoratedTestSource.this.r),
-                    TimeOutDecoratedTestSource.this.timeoutStrategy, a.getTime()));
+      String name = a.getName();
+      TestUnit tu = TimeOutDecoratedTestSource.this.allTests.get(name);
+
+      if (tu == null) {
+        int paren = name.indexOf('(');
+        String noParams = (paren != -1) ? name.substring(0, paren) : name;
+
+        if (!noParams.equals(name)) {
+          tu = TimeOutDecoratedTestSource.this.allTests.get(noParams);
+//          LOG.info("DEBUG TRANS: fallback1 " + name + " -> " + noParams + " => " + (tu != null));
+        }
+
+        if (tu == null) {
+          int lastDot = noParams.lastIndexOf('.');
+          if (lastDot != -1) {
+            String className = noParams.substring(0, lastDot);
+            tu = TimeOutDecoratedTestSource.this.allTests.get(className);
+//            LOG.info("DEBUG TRANS: fallback2 " + name + " -> " + className + " => " + (tu != null));
+          }
+        }
       }
+
+      if (tu != null) {
+        return Stream.of(
+                new MutationTimeoutDecorator(
+                        tu,
+                        new TimeOutSystemExitSideEffect(TimeOutDecoratedTestSource.this.r),
+                        TimeOutDecoratedTestSource.this.timeoutStrategy,
+                        a.getTime()
+                )
+        );
+      }
+
+//      LOG.info("DEBUG TRANS: still no TestUnit for `" + name + "`");
       return Stream.empty();
     };
   }
+
 
 }

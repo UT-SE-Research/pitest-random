@@ -84,6 +84,14 @@
             <artifactId>pitest-aggregator</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<!-- no scope: we want it on the plugin runtime classpath -->
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-plugin-api</artifactId>

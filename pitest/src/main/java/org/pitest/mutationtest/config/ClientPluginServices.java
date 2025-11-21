@@ -1,6 +1,8 @@
 package org.pitest.mutationtest.config;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.pitest.mutationtest.environment.EnvironmentResetPlugin;
 import org.pitest.mutationtest.MutationEngineFactory;
@@ -21,7 +23,25 @@ public class ClientPluginServices {
   }
 
   Collection<? extends TestPluginFactory> findTestFrameworkPlugins() {
-    return ServiceLoader.load(TestPluginFactory.class, this.loader);
+    List<TestPluginFactory> plugins = new ArrayList<>();
+
+    Iterable<?> loaded = ServiceLoader.load(TestPluginFactory.class, this.loader);
+
+    for (Object o : loaded) {
+      plugins.add((TestPluginFactory) o);
+    }
+
+    if (plugins.isEmpty()) {
+      try {
+        Class<?> c = Class.forName("org.pitest.junit.JUnitTestPlugin", false, this.loader);
+        Object instance = c.getDeclaredConstructor().newInstance();
+        plugins.add((TestPluginFactory) instance);
+      } catch (Exception e) {
+        // ignore: if fallback also fails, MinionSettings will throw NO_TEST_PLUGIN
+      }
+    }
+
+    return plugins;
   }
 
   Collection<? extends MutationEngineFactory> findMutationEngines() {

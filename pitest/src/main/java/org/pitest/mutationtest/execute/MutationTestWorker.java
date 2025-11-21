@@ -15,6 +15,7 @@
 package org.pitest.mutationtest.execute;
 
 import org.pitest.classinfo.ClassName;
+import org.pitest.coverage.TestInfo;
 import org.pitest.mutationtest.DetectionStatus;
 import org.pitest.mutationtest.MutationStatusTestPair;
 import org.pitest.mutationtest.engine.gregor.GregorMutater;
@@ -29,10 +30,11 @@ import org.pitest.testapi.TestResult;
 import org.pitest.testapi.TestUnit;
 import org.pitest.testapi.execute.Container;
 import org.pitest.testapi.execute.ExitingResultCollector;
-import org.pitest.testapi.execute.MultipleTestGroup;
 import org.pitest.testapi.execute.Pitest;
 import org.pitest.testapi.execute.containers.ConcreteResultCollector;
 import org.pitest.testapi.execute.containers.UnContainer;
+import org.pitest.testapi.execute.MultipleTestGroup;
+import org.pitest.testapi.execute.NamedTestUnit;
 import org.pitest.util.Log;
 import org.pitest.util.Verbosity;
 
@@ -129,8 +131,16 @@ public class MutationTestWorker {
         if (DEBUG) {
             LOG.fine("mutating method " + mutatedClass.getDetails().getMethod());
         }
-        final List<TestUnit> relevantTests = testSource
-                .translateTests(mutationDetails.getTestsInOrder());
+
+        final List<TestInfo> testsInOrder = mutationDetails.getTestsInOrder();
+        final List<TestUnit> rawTests = testSource.translateTests(testsInOrder);
+        final List<TestUnit> relevantTests = new ArrayList<>(rawTests.size());
+
+        for (int i = 0; i < rawTests.size(); i++) {
+            TestUnit tu = rawTests.get(i);
+            String displayName = getDisplayName(testsInOrder, i);
+            relevantTests.add(new NamedTestUnit(tu, displayName));
+        }
 
         r.describe(mutationId);
         final MutationStatusTestPair mutationDetected;
@@ -144,6 +154,25 @@ public class MutationTestWorker {
         if (DEBUG) {
             LOG.fine("Mutation " + mutationId + " detected = " + mutationDetected);
         }
+    }
+
+    private static String getDisplayName(List<TestInfo> testsInOrder, int i) {
+        TestInfo info = testsInOrder.get(i);
+
+        String fullName = info.getName();
+        String displayName = fullName;
+
+        int paren = fullName.indexOf('(');
+        if (paren > 0) {
+            String beforeParen = fullName.substring(0, paren);
+            int lastDot = beforeParen.lastIndexOf('.');
+            if (lastDot >= 0 && lastDot + 1 < fullName.length()) {
+                String methodName = beforeParen.substring(lastDot + 1);
+                String suffix = fullName.substring(paren);
+                displayName = methodName + suffix;
+            }
+        }
+        return displayName;
     }
 
     private MutationStatusTestPair handleMutationWithPotentialDifferentClass(
