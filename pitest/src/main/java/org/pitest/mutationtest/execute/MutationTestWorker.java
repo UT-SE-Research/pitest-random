@@ -34,6 +34,7 @@ import org.pitest.testapi.execute.Pitest;
 import org.pitest.testapi.execute.containers.ConcreteResultCollector;
 import org.pitest.testapi.execute.containers.UnContainer;
 import org.pitest.testapi.execute.MultipleTestGroup;
+import org.pitest.testapi.execute.NamedTestUnit;
 import org.pitest.util.Log;
 import org.pitest.util.Verbosity;
 
@@ -131,17 +132,21 @@ public class MutationTestWorker {
             LOG.fine("mutating method " + mutatedClass.getDetails().getMethod());
         }
 
-        final List<TestUnit> relevantTests = testSource.translateTests(mutationDetails.getTestsInOrder());
+        final List<TestInfo> testsInOrder = mutationDetails.getTestsInOrder();
+        final List<TestUnit> rawTests = testSource.translateTests(testsInOrder);
+        final List<TestUnit> relevantTests = new ArrayList<>(rawTests.size());
 
-//        final List<TestInfo> testsInOrder = mutationDetails.getTestsInOrder();
-//        final List<TestUnit> rawTests = testSource.translateTests(testsInOrder);
-//        final List<TestUnit> relevantTests = new ArrayList<>(rawTests.size());
-//
-//        for (int i = 0; i < rawTests.size(); i++) {
-//            TestUnit tu = rawTests.get(i);
-//            String displayName = getDisplayName(testsInOrder, i);
-//            relevantTests.add(new NamedTestUnit(tu, displayName));
-//        }
+        for (int i = 0; i < rawTests.size(); i++) {
+            TestUnit tu   = rawTests.get(i);
+            TestInfo info = testsInOrder.get(i);
+
+            if (((MutationTimeoutDecorator) tu).child() instanceof org.pitest.junit.adapter.AdaptedJUnitTestUnit) {
+                String displayName = getJUnit4DisplayName(info.getName());
+                relevantTests.add(new NamedTestUnit(tu, displayName));
+            } else {
+                relevantTests.add(tu);
+            }
+        }
 
         r.describe(mutationId);
         final MutationStatusTestPair mutationDetected;
@@ -157,12 +162,8 @@ public class MutationTestWorker {
         }
     }
 
-    private static String getDisplayName(List<TestInfo> testsInOrder, int i) {
-        TestInfo info = testsInOrder.get(i);
-
-        String fullName = info.getName();
+    private static String getJUnit4DisplayName(String fullName) {
         String displayName = fullName;
-
         int paren = fullName.indexOf('(');
         if (paren > 0) {
             String beforeParen = fullName.substring(0, paren);

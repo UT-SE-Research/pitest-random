@@ -27,7 +27,7 @@ public class JUnit5TestUnit extends AbstractTestUnit {
     }
 
     public JUnit5TestUnit(Class<?> testClass, String uniqueId, String displayName) {
-        super(new Description(displayName, testClass));
+        super(new Description(uniqueId, testClass));
         this.testClass = testClass;
         this.uniqueId = uniqueId;
         this.displayName = displayName;
@@ -54,12 +54,13 @@ public class JUnit5TestUnit extends AbstractTestUnit {
                 .build();
 
         launcher.registerTestExecutionListeners(new TestExecutionListener() {
+
             @Override
             public void executionSkipped(TestIdentifier testIdentifier, String reason) {
                 testIdentifier.getSource().ifPresent(testSource -> {
                     if (testSource instanceof MethodSource) {
                         resultCollector.notifySkipped(
-                                new Description(testIdentifier.getDisplayName(), testClass));
+                                new Description(uniqueId, testClass));
                     }
                 });
             }
@@ -69,7 +70,7 @@ public class JUnit5TestUnit extends AbstractTestUnit {
                 testIdentifier.getSource().ifPresent(testSource -> {
                     if (testSource instanceof MethodSource) {
                         resultCollector.notifyStart(
-                                new Description(testIdentifier.getDisplayName(), testClass));
+                                new Description(uniqueId, testClass));
                     }
                 });
             }
@@ -80,17 +81,14 @@ public class JUnit5TestUnit extends AbstractTestUnit {
                 testIdentifier.getSource().ifPresent(testSource -> {
                     if (testSource instanceof MethodSource) {
                         Optional<Throwable> throwable = testExecutionResult.getThrowable();
+                        Description desc = new Description(uniqueId, testClass);
 
                         if (TestExecutionResult.Status.ABORTED == testExecutionResult.getStatus()) {
-                            resultCollector.notifyEnd(
-                                    new Description(testIdentifier.getDisplayName(), testClass));
+                            resultCollector.notifyEnd(desc);
                         } else if (throwable.isPresent()) {
-                            resultCollector.notifyEnd(
-                                    new Description(testIdentifier.getDisplayName(), testClass),
-                                    throwable.get());
+                            resultCollector.notifyEnd(desc, throwable.get());
                         } else {
-                            resultCollector.notifyEnd(
-                                    new Description(testIdentifier.getDisplayName(), testClass));
+                            resultCollector.notifyEnd(desc);
                         }
                     }
                 });
