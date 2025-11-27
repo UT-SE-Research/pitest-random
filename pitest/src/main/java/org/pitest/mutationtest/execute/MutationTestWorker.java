@@ -15,7 +15,6 @@
 package org.pitest.mutationtest.execute;
 
 import org.pitest.classinfo.ClassName;
-import org.pitest.coverage.TestInfo;
 import org.pitest.mutationtest.DetectionStatus;
 import org.pitest.mutationtest.MutationStatusTestPair;
 import org.pitest.mutationtest.engine.gregor.GregorMutater;
@@ -34,7 +33,6 @@ import org.pitest.testapi.execute.Pitest;
 import org.pitest.testapi.execute.containers.ConcreteResultCollector;
 import org.pitest.testapi.execute.containers.UnContainer;
 import org.pitest.testapi.execute.MultipleTestGroup;
-import org.pitest.testapi.execute.NamedTestUnit;
 import org.pitest.util.Log;
 import org.pitest.util.Verbosity;
 
@@ -132,21 +130,7 @@ public class MutationTestWorker {
             LOG.fine("mutating method " + mutatedClass.getDetails().getMethod());
         }
 
-        final List<TestInfo> testsInOrder = mutationDetails.getTestsInOrder();
-        final List<TestUnit> rawTests = testSource.translateTests(testsInOrder);
-        final List<TestUnit> relevantTests = new ArrayList<>(rawTests.size());
-
-        for (int i = 0; i < rawTests.size(); i++) {
-            TestUnit tu   = rawTests.get(i);
-            TestInfo info = testsInOrder.get(i);
-
-            if (((MutationTimeoutDecorator) tu).child() instanceof org.pitest.junit.adapter.AdaptedJUnitTestUnit) {
-                String displayName = getJUnit4DisplayName(info.getName());
-                relevantTests.add(new NamedTestUnit(tu, displayName));
-            } else {
-                relevantTests.add(tu);
-            }
-        }
+        final List<TestUnit> relevantTests = testSource.translateTests(mutationDetails.getTestsInOrder());
 
         r.describe(mutationId);
         final MutationStatusTestPair mutationDetected;

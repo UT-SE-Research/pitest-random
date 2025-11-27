@@ -1,5 +1,8 @@
 package org.pitest.junit.adapter;
 
+import org.junit.runner.manipulation.Filter;
+import org.pitest.junit.DescriptionFilter;
+import org.pitest.junit.ParameterisedTestFilter;
 import org.pitest.testapi.Configuration;
 import org.pitest.testapi.TestUnit;
 import org.pitest.testapi.TestUnitDescriptor;
@@ -30,7 +33,21 @@ public final class JUnit4TestUnitDescriptorFactory implements TestUnitDescriptor
             AdaptedJUnitTestUnit aju = (AdaptedJUnitTestUnit) u;
 
             String className = aju.getTestClass().getName();
-            result.add(new JUnit4TestUnitDescriptor(className));
+
+            String filterDesc = null;
+            if (aju.getFilter().isPresent()) {
+                Filter f = aju.getFilter().get();
+
+                if (f instanceof DescriptionFilter || f instanceof ParameterisedTestFilter) {
+                    filterDesc = f.describe();
+                } else {
+                    LOG.fine("JUnit4 descriptor factory: unknown Filter type "
+                            + f.getClass() + ", falling back to default behaviour.");
+                    return Collections.emptyList();
+                }
+            }
+
+            result.add(new JUnit4TestUnitDescriptor(className, filterDesc));
         }
 
         return result;
@@ -43,7 +60,16 @@ public final class JUnit4TestUnitDescriptorFactory implements TestUnitDescriptor
         JUnit4TestUnitDescriptor d = (JUnit4TestUnitDescriptor) descriptor;
         try {
             Class<?> clazz = Class.forName(d.getClassName(), false, loader);
-            return new AdaptedJUnitTestUnit(clazz, Optional.empty());
+
+            Optional<Filter> filter;
+            String fd = d.getFilterDescription();
+            if (fd == null) {
+                filter = Optional.empty();
+            } else {
+                filter = Optional.of(new ReconstructedFilter(fd));
+            }
+
+            return new AdaptedJUnitTestUnit(clazz, filter);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(
                     "Failed to recreate JUnit4 TestUnit for " + d.getClassName(), e

@@ -8,16 +8,25 @@ public final class JUnit4TestUnitDescriptor implements TestUnitDescriptor {
 
     private final String className;
 
-    public JUnit4TestUnitDescriptor(String className) {
+    private final String filterDescription;
+
+    public JUnit4TestUnitDescriptor(String className, String filterDescription) {
         this.className = className;
+        this.filterDescription = filterDescription;
     }
 
     public String getClassName() {
         return className;
     }
 
+    public String getFilterDescription() {
+        return filterDescription;
+    }
+
     @Override
     public String toString() {
-        return "JUnit4TestUnitDescriptor[" + className + "]";
+        return "JUnit4TestUnitDescriptor[" + className
+                + (filterDescription != null ? ("," + filterDescription) : "")
+                + "]";
     }
 }
