@@ -89,10 +89,21 @@ public class MutationTestWorker {
     protected void run(final Collection<MutationDetails> range, final Reporter r,
                        final TimeOutDecoratedTestSource testSource) throws IOException {
 
+        ClassName lastClass = null;
+
         for (final MutationDetails mutation : range) {
             if (DEBUG) {
                 LOG.fine("Running mutation " + mutation);
             }
+
+            // class boundary reset (same minion JVM)
+            final ClassName curClass = mutation.getId().getClassName();
+            if (lastClass != null && !lastClass.equals(curClass)) {
+                CatchNewClassLoadersTransformer.resetForNextClass();
+                // LOG.info("RANDOM LOG: class boundary reset: " + lastClass.asJavaName() + " -> " + curClass.asJavaName());
+            }
+            lastClass = curClass;
+
             final long t0 = System.nanoTime();
             LOG.info("RANDOM LOG: Mutation started at " + System.nanoTime() + " ns.");
             processMutation(r, testSource, mutation);
