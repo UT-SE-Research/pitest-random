@@ -97,10 +97,10 @@ public class MutationTestWorker {
             }
 
             // class boundary reset (same minion JVM)
-            final ClassName curClass = mutation.getId().getClassName();
+            final ClassName curClass = mutation.getId().getLocation().getClassName();
             if (lastClass != null && !lastClass.equals(curClass)) {
                 CatchNewClassLoadersTransformer.resetForNextClass();
-                // LOG.info("RANDOM LOG: class boundary reset: " + lastClass.asJavaName() + " -> " + curClass.asJavaName());
+                 LOG.info("RANDOM LOG: class boundary reset: " + lastClass.asJavaName() + " -> " + curClass.asJavaName());
             }
             lastClass = curClass;
 
