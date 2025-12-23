@@ -77,6 +77,19 @@ public class WrappingProcess {
     this.process.destroy();
   }
 
+  public void destroyForcibly() {
+    if (this.process != null) {
+      this.process.destroyForcibly();
+    }
+  }
+
+  public boolean waitFor(final long timeoutMillis) throws InterruptedException {
+    if (this.process == null) {
+      return true;
+    }
+    return this.process.waitFor(timeoutMillis);
+  }
+
   private ProcessBuilder createProcessBuilder(String javaProc,
       List<String> args, Class<?> mainClass, List<String> programArgs,
       JavaAgent javaAgent, String classPath) {

@@ -5,6 +5,7 @@ import java.net.ServerSocket;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 
 import org.pitest.mutationtest.MutationStatusMap;
 import org.pitest.mutationtest.MutationStatusTestPair;
@@ -14,8 +15,12 @@ import org.pitest.process.ProcessArgs;
 import org.pitest.process.WrappingProcess;
 import org.pitest.util.CommunicationThread;
 import org.pitest.util.ExitCode;
+import org.pitest.util.Log;
+import org.pitest.util.Verbosity;
 
 public class MutationTestProcess {
+
+  private static final Logger LOG = Log.getLogger();
 
   private final WrappingProcess process;
   private final CommunicationThread thread;
@@ -71,7 +76,41 @@ public class MutationTestProcess {
       // before reporting its exit
       return maybeExit.orElse(ExitCode.MINION_DIED);
     } finally {
-      this.process.destroy();
+        boolean exitedAfterDestroy = false;
+        boolean exitedAfterForce = false;
+
+        // 1) Try graceful shutdown first
+        try {
+            this.process.destroy();
+            exitedAfterDestroy = this.process.waitFor(200);
+        } catch (final InterruptedException ie) {
+            Thread.currentThread().interrupt();
+        } catch (final Throwable ignore) {
+            // ignore
+        }
+
+        // 2) If still alive, force kill
+        if (this.process.isAlive()) {
+            if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
+                LOG.info("RANDOM LOG: forcing minion kill at " + System.nanoTime() + " ns.");
+            }
+            try {
+                this.process.destroyForcibly();
+                exitedAfterForce = this.process.waitFor(5000);
+            } catch (final InterruptedException ie) {
+                Thread.currentThread().interrupt();
+            } catch (final Throwable ignore) {
+                // ignore
+            }
+        }
+
+        // 3) Final state log
+        if (Log.verbosity() == Verbosity.RANDOM_VERBOSE) {
+            LOG.info("RANDOM LOG: cleanup_done exitedAfterDestroy=" + exitedAfterDestroy
+                    + " exitedAfterForce=" + exitedAfterForce
+                    + " alive_after_cleanup=" + this.process.isAlive()
+                    + " at " + System.nanoTime() + " ns.");
+        }
     }
 
   }

@@ -17,6 +17,7 @@ package org.pitest.process;
 import org.pitest.util.Monitor;
 import org.pitest.util.StreamMonitor;
 
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 public class JavaProcess {
@@ -56,6 +57,16 @@ public class JavaProcess {
     } catch (final IllegalThreadStateException e) {
       return true;
     }
+  }
+
+  public void destroyForcibly() {
+    this.out.requestStop();
+    this.err.requestStop();
+    this.process.destroyForcibly();
+  }
+
+  public boolean waitFor(final long timeoutMillis) throws InterruptedException {
+    return this.process.waitFor(timeoutMillis, TimeUnit.MILLISECONDS);
   }
 
 }

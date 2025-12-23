@@ -100,7 +100,7 @@ public class MutationTestWorker {
             final ClassName curClass = mutation.getId().getLocation().getClassName();
             if (lastClass != null && !lastClass.equals(curClass)) {
                 CatchNewClassLoadersTransformer.resetForNextClass();
-                 LOG.info("RANDOM LOG: class boundary reset: " + lastClass.asJavaName() + " -> " + curClass.asJavaName());
+                LOG.info("RANDOM LOG: class boundary reset: " + lastClass.asJavaName() + " -> " + curClass.asJavaName());
             }
             lastClass = curClass;
 
