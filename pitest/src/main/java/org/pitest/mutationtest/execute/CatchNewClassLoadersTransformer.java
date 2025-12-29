@@ -55,17 +55,25 @@ public class CatchNewClassLoadersTransformer implements ClassFileTransformer {
             iterCount++;
 
             long t0 = 0;
-            if (v) t0 = System.nanoTime();
+            if (v) {
+                t0 = System.nanoTime();
+            }
             final Class<?> clazz = checkClassForLoader(each, className);
-            if (v) checkNs += (System.nanoTime() - t0);
+            if (v) {
+                checkNs += (System.nanoTime() - t0);
+            }
 
             if (clazz != null) {
                 hitCount++;
 
                 long t1 = 0;
-                if (v) t1 = System.nanoTime();
+                if (v) {
+                    t1 = System.nanoTime();
+                }
                 HotSwapAgent.hotSwap(clazz, mutant);
-                if (v) hotSwapNs += (System.nanoTime() - t1);
+                if (v) {
+                    hotSwapNs += (System.nanoTime() - t1);
+                }
             }
         }
 
