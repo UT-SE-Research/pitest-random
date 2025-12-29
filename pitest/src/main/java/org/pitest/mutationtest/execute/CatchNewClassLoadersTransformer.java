@@ -2,12 +2,15 @@ package org.pitest.mutationtest.execute;
 
 import org.pitest.boot.HotSwapAgent;
 import org.pitest.classinfo.ClassName;
+import org.pitest.util.Log;
+import org.pitest.util.Verbosity;
 
 import java.lang.instrument.ClassFileTransformer;
 import java.security.ProtectionDomain;
 import java.util.Collections;
 import java.util.Map;
 import java.util.WeakHashMap;
+import java.util.logging.Logger;
 
 /**
  * Pitest mainly inserts mutants by calling Instrumentation.redefineClasses using
@@ -28,6 +31,8 @@ import java.util.WeakHashMap;
  */
 public class CatchNewClassLoadersTransformer implements ClassFileTransformer {
 
+    private static final Logger LOG = Log.getLogger();
+
     private static String targetClass;
     private static byte[] currentMutant;
 
@@ -38,11 +43,38 @@ public class CatchNewClassLoadersTransformer implements ClassFileTransformer {
     public static synchronized void setMutant(String className, byte[] mutant) {
         targetClass = className;
         currentMutant = mutant;
+
+        final boolean v = (Log.verbosity() == Verbosity.RANDOM_VERBOSE);
+
+        int iterCount = 0;
+        int hitCount = 0;
+        long checkNs = 0;
+        long hotSwapNs = 0;
+
         for (ClassLoader each : CLASS_LOADERS.keySet()) {
+            iterCount++;
+
+            long t0 = 0;
+            if (v) t0 = System.nanoTime();
             final Class<?> clazz = checkClassForLoader(each, className);
+            if (v) checkNs += (System.nanoTime() - t0);
+
             if (clazz != null) {
+                hitCount++;
+
+                long t1 = 0;
+                if (v) t1 = System.nanoTime();
                 HotSwapAgent.hotSwap(clazz, mutant);
+                if (v) hotSwapNs += (System.nanoTime() - t1);
             }
+        }
+
+        if (v) {
+            LOG.info("RANDOM LOG: setMutant class=" + className
+                    + " iter=" + iterCount
+                    + " hit=" + hitCount
+                    + " checkNs=" + checkNs
+                    + " hotSwapNs=" + hotSwapNs);
         }
     }
 
